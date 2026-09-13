@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive,nosnippet"><title>Panel Admin Ebook</title>
+<style>
+:root{--navy:#12233f;--navy2:#17365f;--mint:#9fe8d9;--green:#16a085;--paper:#f6fbff;--ink:#13233a;--muted:#6a788a;--red:#c23b3b;--line:#dce7ef}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:"Noto Sans KR","Malgun Gothic","Segoe UI",Arial,sans-serif;background:linear-gradient(145deg,#eaf6fb,#f9fcff);color:var(--ink)}body{padding:16px}.shell{max-width:1080px;margin:0 auto}.top{background:linear-gradient(145deg,var(--navy),var(--navy2) 70%,#159786);color:#fff;border-radius:26px;padding:24px;box-shadow:0 18px 50px rgba(18,35,63,.16);margin-bottom:16px}.top h1{font-size:clamp(24px,4vw,36px);margin:0 0 8px}.top p{margin:0;color:rgba(255,255,255,.75);line-height:1.6}.card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:20px;box-shadow:0 10px 30px rgba(18,35,63,.07);margin-bottom:16px}.hidden{display:none!important}
+button{border:0;border-radius:13px;padding:11px 14px;font-weight:900;cursor:pointer;font-size:13px}.primary{background:var(--navy);color:#fff}.mint{background:var(--mint);color:#12314f}.danger{background:#fff0f0;color:#9f2727;border:1px solid #f0caca}.soft{background:#eef4f8;color:#31445d}.smallbtn{padding:7px 9px;font-size:11px;border-radius:9px}.gmark{display:inline-grid;place-items:center;width:23px;height:23px;margin-right:8px;border-radius:50%;background:#fff;color:#4285f4;font-weight:950;font-family:Arial,sans-serif;box-shadow:0 1px 4px rgba(0,0,0,.16);vertical-align:middle}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}.tab{background:#eef4f8;color:#43566e}.tab.active{background:var(--navy);color:#fff}.panel{display:none}.panel.active{display:block}.headrow{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:14px}.headrow h2{margin:0;font-size:20px}.actions{display:flex;gap:8px;flex-wrap:wrap}.muted{color:var(--muted);font-size:12px;line-height:1.55}.status{display:none;margin-top:12px;padding:11px 13px;border-radius:12px;font-size:13px;line-height:1.5}.status.show{display:block}.status.ok{background:#e7f8f2;color:#0a6755}.status.err{background:#fff0f0;color:#9f2727}.stats{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 14px}.pill{background:#eef6f8;padding:8px 11px;border-radius:999px;font-size:12px;font-weight:850}
+label{display:block;font-size:12px;font-weight:850;margin:0 0 6px;color:#31445d}input,textarea,select{width:100%;border:1px solid #cfdce6;border-radius:13px;padding:12px 13px;font-size:14px;outline:none;background:#fbfdff}textarea{min-height:88px;resize:vertical}input:focus,textarea:focus,select:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(22,160,133,.10)}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.field{min-width:0}.colorrow{display:grid;grid-template-columns:1fr 70px;gap:8px}.colorrow input[type=color]{padding:4px;height:43px}.form-actions{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap}
+.tablewrap{overflow:auto;border:1px solid var(--line);border-radius:16px}.table{min-width:760px;width:100%;border-collapse:collapse}.table th,.table td{padding:11px 12px;border-bottom:1px solid var(--line);text-align:left;font-size:12px;vertical-align:top}.table th{background:#f4f8fb;color:#546579;font-size:10px;text-transform:uppercase;letter-spacing:.04em}.table tr:last-child td{border-bottom:0}.badge{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:900;padding:6px 9px;border-radius:999px}.on{background:#e7f8f2;color:#0b6c59}.off{background:#f3f3f5;color:#6f7580}.freebadge{background:#e7f8f2;color:#087765}.premiumbadge{background:#fff3dc;color:#8a5b00}.dot{width:7px;height:7px;border-radius:50%;background:currentColor}.empty{text-align:center;padding:30px;color:var(--muted)}.mono{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}.progress{margin-top:10px;font-size:12px;color:#526579}.footer{text-align:center;color:#7a8998;font-size:11px;padding:12px}.chapter-title-cell{font-weight:850;color:var(--navy)}.sales-preview{width:100%;max-width:250px;max-height:180px;object-fit:cover;border:1px solid var(--line);border-radius:14px;background:#eef4f8;display:block;margin-top:8px}.media-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}.hint{font-size:11px;color:var(--muted);line-height:1.5;margin-top:5px}
+@media(max-width:720px){body{padding:9px}.top,.card{border-radius:18px;padding:16px}.grid2,.grid3{grid-template-columns:1fr}.headrow{align-items:flex-start;flex-direction:column}.headrow .actions{width:100%}.headrow .actions button{flex:1}.tabs{display:grid;grid-template-columns:1fr 1fr}.tab{padding:10px 8px}.top{padding-top:20px}}
+.group-list{display:grid;gap:14px}.group-card{border:1px solid var(--line);border-radius:18px;background:#fff;overflow:hidden;box-shadow:0 8px 24px rgba(23,54,95,.05)}
+.group-head{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:14px}.group-no{width:42px;height:42px;border-radius:14px;background:#eef6fb;color:var(--navy);display:grid;place-items:center;font-weight:950}
+.group-title{font-weight:950;color:var(--navy);font-size:15px}.group-meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:6px}.meta-pill{font-size:10px;font-weight:850;padding:5px 8px;border-radius:999px;background:#f1f5f8;color:#617184}
+.group-actions{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}.group-pages{border-top:1px solid var(--line);background:#f8fbfd;padding:10px;display:grid;gap:8px}.group-pages.hidden{display:none}
+.page-row{display:grid;grid-template-columns:36px minmax(0,1fr) auto;gap:9px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px}.page-num{width:30px;height:30px;border-radius:10px;background:#eef6fb;display:grid;place-items:center;font-size:11px;font-weight:900;color:var(--navy)}
+.page-main{min-width:0}.page-name{font-weight:850;color:var(--navy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.page-sub{font-size:10px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px}.page-actions{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end}
+.compact-help{background:#eef9f7;border:1px solid #c9eee7;border-radius:14px;padding:11px 13px;color:#17675e;font-size:12px;line-height:1.5}.legacy-box{margin-top:12px;padding-top:12px;border-top:1px dashed var(--line)}
+@media(max-width:720px){.group-head{grid-template-columns:auto 1fr}.group-actions{grid-column:1/-1;justify-content:flex-start}.page-row{grid-template-columns:32px 1fr}.page-actions{grid-column:1/-1;justify-content:flex-start;padding-left:41px}.grid4{grid-template-columns:1fr!important}}
+</style>
+</head>
+<body>
+<div class="shell">
+<section class="top"><h1>🔐 Panel Admin Ebook</h1><p>Kelola pembeli, perangkat, tampilan ebook, daftar isi, dan bab dari satu tempat. Setelah sistem ini terpasang, perubahan isi langsung tampil di ebook tanpa upload ulang ke Cloudflare.</p></section>
+<section class="card" id="loginPanel"><h2 style="margin-top:0">Login Admin</h2><p class="muted">Masuk menggunakan akun Google admin.</p><button class="mint" id="googleAdminLogin" type="button" style="width:100%;margin-top:10px"><span class="gmark">G</span> Masuk dengan Google</button><div id="loginStatus" class="status"></div></section>
+<section id="adminPanel" class="hidden">
+  <div class="tabs"><button class="tab active" data-tab="licenses">👥 Lisensi</button><button class="tab" data-tab="settings">✎ Edit Ebook</button><button class="tab" data-tab="chapters">☰ Bab & Daftar Isi</button><button class="tab" data-tab="sales">🛒 Halaman Penjualan</button><button class="tab" id="openBookBtn">↗ Lihat Ebook</button></div>
+
+  <div class="panel active" id="panel-licenses">
+    <div class="card">
+      <div class="headrow">
+        <div>
+          <h2>Calon Pembeli</h2>
+          <div class="muted">Data dari form pembelian Google Sheet. Aktifkan hanya setelah pembayaran benar-benar diterima.</div>
+        </div>
+        <button class="soft" id="refreshCustomers">↻ Muat Ulang</button>
+      </div>
+      <div class="stats">
+        <span class="pill">Total: <b id="customerCount">0</b></span>
+        <span class="pill">Belum Bayar: <b id="pendingCustomerCount">0</b></span>
+        <span class="pill">Aktif: <b id="paidCustomerCount">0</b></span>
+      </div>
+      <div id="customerStatus" class="status"></div>
+      <div class="tablewrap">
+        <table class="table">
+          <thead><tr><th>Tanggal</th><th>Nama</th><th>Email</th><th>WhatsApp</th><th>Pembayaran</th><th>Akses</th><th>Tindakan</th></tr></thead>
+          <tbody id="customerRows"></tbody>
+        </table>
+        <div id="customerEmpty" class="empty hidden">Belum ada calon pembeli.</div>
+      </div>
+    </div>
+    <div class="card"><div class="headrow"><div><h2>Tambah Pembeli</h2><div class="muted">Setelah pembayaran terverifikasi, masukkan email Google pembeli.</div></div><div class="actions"><button class="soft" id="copyBookUrl">Salin URL Ebook</button><button class="danger" id="logoutBtn">Keluar Admin</button></div></div><form id="buyerForm" class="grid2"><div class="field"><label>Email pembeli</label><input id="buyerEmail" type="email" placeholder="pembeli@gmail.com" required></div><div style="display:flex;align-items:end"><button class="mint" id="addBuyerBtn" style="width:100%">+ Aktifkan Akses</button></div></form><div id="licenseStatus" class="status"></div></div>
+    <div class="card"><div class="headrow"><div><h2>Daftar Lisensi</h2><div class="muted">Reset Perangkat dipakai jika pembeli benar-benar ganti HP/browser.</div></div><button class="soft" id="refreshLicenses">↻ Muat Ulang</button></div><div class="stats"><span class="pill">Total: <b id="totalCount">0</b></span><span class="pill">Aktif: <b id="activeCount">0</b></span><span class="pill">Nonaktif: <b id="inactiveCount">0</b></span><span class="pill">Terikat: <b id="boundCount">0</b></span></div><div class="tablewrap"><table class="table"><thead><tr><th>Email</th><th>Status</th><th>Perangkat</th><th>Tindakan</th></tr></thead><tbody id="licenseRows"></tbody></table><div id="licenseEmpty" class="empty hidden">Belum ada lisensi.</div></div></div>
+  </div>
+
+  <div class="panel" id="panel-settings">
+    <div class="card"><div class="headrow"><div><h2>Edit Tampilan Ebook</h2><div class="muted">Ubah judul, penulis, daftar isi, penutup, dan warna sampul. Klik Simpan; pembeli akan melihat versi baru saat membuka ulang ebook.</div></div><button class="soft" id="loadSettingsBtn">↻ Muat Ulang</button></div>
+      <form id="settingsForm">
+        <div class="grid2"><div class="field"><label>Label atas sampul</label><input id="s-eyebrow"></div><div class="field"><label>Judul kecil</label><input id="s-titleSmall"></div></div>
+        <div class="field" style="margin-top:12px"><label>Judul utama</label><input id="s-titleMain"></div>
+        <div class="field" style="margin-top:12px"><label>Subjudul / deskripsi</label><textarea id="s-subtitle"></textarea></div>
+        <div class="grid2" style="margin-top:12px"><div class="field"><label>Nama penulis / brand</label><input id="s-author"></div><div class="field"><label>Edisi</label><input id="s-edition"></div></div>
+        <div class="field" style="margin-top:12px"><label>Teks Korea di sampul</label><input id="s-coverKo"></div>
+        <hr style="border:0;border-top:1px solid var(--line);margin:18px 0"><div class="grid3"><div class="field"><label>Warna sampul 1</label><div class="colorrow"><input id="s-coverColor1" type="text"><input id="c-coverColor1" type="color"></div></div><div class="field"><label>Warna sampul 2</label><div class="colorrow"><input id="s-coverColor2" type="text"><input id="c-coverColor2" type="color"></div></div><div class="field"><label>Warna aksen</label><div class="colorrow"><input id="s-accentColor" type="text"><input id="c-accentColor" type="color"></div></div></div>
+        <hr style="border:0;border-top:1px solid var(--line);margin:18px 0"><div class="grid2"><div class="field"><label>Label Daftar Isi</label><input id="s-tocKicker"></div><div class="field"><label>Judul Daftar Isi</label><input id="s-tocTitle"></div></div><div class="field" style="margin-top:12px"><label>Keterangan Daftar Isi</label><textarea id="s-tocLead"></textarea></div><div class="grid2" style="margin-top:12px"><div class="field"><label>Pesan mode demo</label><textarea id="s-demoMessage" placeholder="Contoh: Coba beberapa materi gratis sebelum membeli akses lengkap."></textarea></div><div class="field"><label>Teks tombol pembelian</label><input id="s-purchaseLabel" placeholder="Beli Akses Lengkap"></div></div><div class="field" style="margin-top:12px"><label>Link pembelian / WhatsApp (opsional)</label><input id="s-purchaseUrl" placeholder="Contoh: https://wa.me/62..."></div>
+        <hr style="border:0;border-top:1px solid var(--line);margin:18px 0"><div class="grid2"><div class="field"><label>Label penutup</label><input id="s-closingKicker"></div><div class="field"><label>Judul penutup</label><input id="s-closingTitle"></div></div><div class="field" style="margin-top:12px"><label>Teks penutup</label><textarea id="s-closingSub"></textarea></div>
+        <div class="form-actions"><button class="mint" id="saveSettingsBtn" type="submit">💾 Simpan Perubahan Ebook</button></div>
+      </form><div id="settingsStatus" class="status"></div>
+    </div>
+  </div>
+
+
+  <div class="panel" id="panel-sales">
+    <div class="card">
+      <div class="headrow">
+        <div>
+          <h2>🛒 Edit Halaman Penjualan</h2>
+          <div class="muted">Ubah harga, teks promosi, WhatsApp, foto, dan video. Setelah disimpan, beli.html langsung ikut berubah tanpa upload Cloudflare ulang.</div>
+        </div>
+        <div class="actions">
+          <button class="soft" id="loadSalesBtn" type="button">↻ Muat Ulang</button>
+          <button class="primary" id="openSalesBtn" type="button">↗ Lihat Halaman Penjualan</button>
+        </div>
+      </div>
+
+      <form id="salesForm">
+        <div class="grid2">
+          <div class="field"><label>Nama / brand di halaman</label><input id="sales-brand" placeholder="MUDAH Bahasa Korea"></div>
+          <div class="field"><label>Label kecil di atas</label><input id="sales-eyebrow" placeholder="EBOOK INTERAKTIF BAHASA KOREA"></div>
+        </div>
+        <div class="field" style="margin-top:12px"><label>Judul utama promosi</label><textarea id="sales-headline" style="min-height:72px"></textarea></div>
+        <div class="field" style="margin-top:12px"><label>Subjudul / deskripsi promosi</label><textarea id="sales-subtitle"></textarea></div>
+
+        <hr style="border:0;border-top:1px solid var(--line);margin:18px 0">
+        <div class="grid3">
+          <div class="field"><label>Harga normal</label><input id="sales-normalPrice" inputmode="numeric" placeholder="199000"></div>
+          <div class="field"><label>Harga promo</label><input id="sales-promoPrice" inputmode="numeric" placeholder="129000"></div>
+          <div class="field"><label>Label promo</label><input id="sales-promoLabel" placeholder="HARGA LAUNCHING"></div>
+        </div>
+
+        <hr style="border:0;border-top:1px solid var(--line);margin:18px 0">
+        <div class="grid2">
+          <div class="field"><label>Nomor WhatsApp penjualan</label><input id="sales-whatsapp" inputmode="tel" placeholder="085211419499"><div class="hint">Boleh diawali 08 atau 62. Sistem akan menyesuaikan untuk WhatsApp.</div></div>
+          <div class="field"><label>Teks tombol beli</label><input id="sales-buyLabel" placeholder="BELI SEKARANG"></div>
+        </div>
+        <div class="field" style="margin-top:12px"><label>Pesan WhatsApp otomatis</label><textarea id="sales-orderMessage" style="min-height:120px"></textarea><div class="hint">Gunakan {harga}, {nama}, dan {email}. Data dari form pembeli akan otomatis dimasukkan ke WhatsApp.</div></div>
+
+        <hr style="border:0;border-top:1px solid var(--line);margin:18px 0">
+        <div class="field"><label>Link video promosi (YouTube atau link video lain)</label><input id="sales-videoUrl" placeholder="https://www.youtube.com/watch?v=..."><div class="hint">Untuk performa terbaik, upload video ke YouTube lalu tempel link-nya di sini. Video tidak disimpan langsung di Firebase.</div></div>
+
+        <hr style="border:0;border-top:1px solid var(--line);margin:18px 0">
+        <div class="grid2">
+          <div class="field">
+            <label>Foto utama / hero</label>
+            <input id="sales-file-heroImage" type="file" accept="image/*">
+            <img id="sales-preview-heroImage" class="sales-preview" alt="Preview foto utama">
+            <div class="media-actions"><button class="danger smallbtn" id="sales-remove-heroImage" type="button">Hapus Foto</button></div>
+          </div>
+          <div class="field">
+            <label>Foto galeri 1</label>
+            <input id="sales-file-gallery1" type="file" accept="image/*">
+            <img id="sales-preview-gallery1" class="sales-preview" alt="Preview galeri 1">
+            <div class="media-actions"><button class="danger smallbtn" id="sales-remove-gallery1" type="button">Hapus Foto</button></div>
+          </div>
+        </div>
+        <div class="grid2" style="margin-top:12px">
+          <div class="field">
+            <label>Foto galeri 2</label>
+            <input id="sales-file-gallery2" type="file" accept="image/*">
+            <img id="sales-preview-gallery2" class="sales-preview" alt="Preview galeri 2">
+            <div class="media-actions"><button class="danger smallbtn" id="sales-remove-gallery2" type="button">Hapus Foto</button></div>
+          </div>
+          <div class="field">
+            <label>Foto galeri 3</label>
+            <input id="sales-file-gallery3" type="file" accept="image/*">
+            <img id="sales-preview-gallery3" class="sales-preview" alt="Preview galeri 3">
+            <div class="media-actions"><button class="danger smallbtn" id="sales-remove-gallery3" type="button">Hapus Foto</button></div>
+          </div>
+        </div>
+        <div class="hint">Foto otomatis diperkecil dan dikompres sebelum disimpan supaya halaman tetap ringan.</div>
+
+        <hr style="border:0;border-top:1px solid var(--line);margin:18px 0">
+        <div class="grid2">
+          <div class="field"><label>Judul manfaat 1</label><input id="sales-feature1Title"></div>
+          <div class="field"><label>Keterangan manfaat 1</label><input id="sales-feature1Text"></div>
+          <div class="field"><label>Judul manfaat 2</label><input id="sales-feature2Title"></div>
+          <div class="field"><label>Keterangan manfaat 2</label><input id="sales-feature2Text"></div>
+          <div class="field"><label>Judul manfaat 3</label><input id="sales-feature3Title"></div>
+          <div class="field"><label>Keterangan manfaat 3</label><input id="sales-feature3Text"></div>
+          <div class="field"><label>Judul manfaat 4</label><input id="sales-feature4Title"></div>
+          <div class="field"><label>Keterangan manfaat 4</label><input id="sales-feature4Text"></div>
+        </div>
+
+        <div class="form-actions"><button class="mint" id="saveSalesBtn" type="submit">💾 Simpan Halaman Penjualan</button></div>
+      </form>
+      <div id="salesStatus" class="status"></div>
+    </div>
+  </div>
+
+  <div class="panel" id="panel-chapters">
+    <div class="card">
+      <div class="headrow">
+        <div>
+          <h2>Tambah Halaman ke Bab</h2>
+          <div class="muted">Upload tetap per halaman agar ringan. Halaman dengan nama bab yang sama otomatis dikelompokkan menjadi satu bab di Daftar Isi.</div>
+        </div>
+      </div>
+      <div class="compact-help">Contoh: Bab <b>33 • 동료와의 관계</b> memiliki Halaman 36–45. Upload Halaman 36, 37, 38, dan seterusnya satu per satu; semuanya tetap tampil sebagai <b>satu Bab 33</b>.</div>
+      <form id="chapterForm" style="margin-top:12px">
+        <div class="grid2">
+          <div class="field"><label>Nama bab</label><input id="chapterGroupInput" list="existingGroups" placeholder="Contoh: Bab 33 • 동료와의 관계" required><datalist id="existingGroups"></datalist></div>
+          <div class="field"><label>Judul halaman</label><input id="chapterTitleInput" placeholder="Contoh: Halaman 36"></div>
+        </div>
+        <div class="grid2" style="margin-top:12px">
+          <div class="field"><label>Akses bab</label><select id="chapterAccessInput"><option value="premium" selected>🔒 Premium</option><option value="free">🎁 Gratis / Demo</option></select></div>
+          <div class="field"><label>File HTML halaman</label><input id="chapterFileInput" type="file" accept=".html,.htm,text/html" required></div>
+        </div>
+        <div class="form-actions"><button class="mint" id="uploadChapterBtn" type="submit">＋ Tambahkan Halaman</button></div>
+      </form>
+      <div id="chapterProgress" class="progress"></div><div id="chapterStatus" class="status"></div>
+
+      <div class="legacy-box">
+        <div class="muted"><b>Punya halaman lama yang sudah terlanjur berdiri sendiri?</b> Gabungkan berdasarkan nomor urutan yang tampil saat ini.</div>
+        <div class="grid3" style="margin-top:10px">
+          <div class="field"><label>Urutan mulai</label><input id="mergeFrom" type="number" min="1" placeholder="3"></div>
+          <div class="field"><label>Urutan akhir</label><input id="mergeTo" type="number" min="1" placeholder="12"></div>
+          <div class="field"><label>Nama bab hasil gabungan</label><input id="mergeGroupTitle" placeholder="Bab 33 • 동료와의 관계"></div>
+        </div>
+        <div class="form-actions"><button class="soft" id="mergeLegacyBtn" type="button">🧩 Gabungkan Menjadi 1 Bab</button></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="headrow">
+        <div><h2>Bab & Daftar Isi</h2><div class="muted">Satu kartu = satu bab. Tekan “Lihat Halaman” untuk membuka daftar file HTML di dalam bab.</div></div>
+        <button class="soft" id="refreshChapters">↻ Muat Ulang</button>
+      </div>
+      <div id="groupList" class="group-list"></div>
+      <div id="chapterEmpty" class="empty hidden">Belum ada materi. Tambahkan halaman HTML di atas.</div>
+      <input id="replaceChapterInput" class="hidden" type="file" accept=".html,.htm,text/html">
+    </div>
+  </div>
+</section>
+<div class="footer">Panel admin • ebookbahasakorea.com • Firebase Authentication + Firestore + enkripsi konten</div>
+</div>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut, setPersistence, browserLocalPersistence } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
+import { getFirestore, collection, doc, setDoc, updateDoc, deleteDoc, getDoc, getDocs, query, orderBy, writeBatch } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+const firebaseConfig={"apiKey":"AIzaSyBsMtisaBEefzqDyytItu6i75-M94CuFwE","authDomain":"ebook-bahasa-korea.firebaseapp.com","projectId":"ebook-bahasa-korea","storageBucket":"ebook-bahasa-korea.firebasestorage.app","messagingSenderId":"36005777127","appId":"1:36005777127:web:0bf23e0656cc3b2ce31c42"};
+const ADMIN_EMAIL="iinfarichin17@gmail.com",BOOK_URL="https://ebookbahasakorea.com/",SALES_URL="https://ebookbahasakorea.com/beli.html",CHUNK_CHARS=100000,BATCH_OPS=40;
+const app=initializeApp(firebaseConfig),auth=getAuth(app),db=getFirestore(app);await setPersistence(auth,browserLocalPersistence);const provider=new GoogleAuthProvider();provider.setCustomParameters({prompt:"select_account"});
+const defaults={eyebrow:"EBOOK • BAHASA KOREA",titleSmall:"MUDAH",titleMain:"Bahasa Korea",subtitle:"Template ebook interaktif yang dapat Anda edit, kembangkan, dan gunakan kembali untuk berbagai materi pembelajaran.",author:"Nama Penulis / Brand",edition:"Edisi Master • 2026",coverKo:"한국어 학습 가이드",tocKicker:"Navigasi Ebook",tocTitle:"Daftar Isi",tocLead:"Pilih bab untuk langsung menuju materi.",demoMessage:"Coba beberapa materi gratis sebelum membeli akses lengkap.",purchaseLabel:"Beli Akses Lengkap",purchaseUrl:"",closingKicker:"Sampai Bertemu di Materi Berikutnya",closingTitle:"Tetap Semangat",closingSub:"작은 진전도 진전입니다.\nSetiap kemajuan kecil tetaplah sebuah kemajuan.",coverColor1:"#17365f",coverColor2:"#1aa696",accentColor:"#9fe8d9"};
+const salesDefaults={
+  salesBrand:"MUDAH Bahasa Korea",
+  salesEyebrow:"EBOOK INTERAKTIF BAHASA KOREA",
+  salesHeadline:"Belajar Korea terasa lebih nyata, bukan sekadar membaca PDF.",
+  salesSubtitle:"Pelajari materi Korea lewat halaman interaktif yang rapi, audio, contoh percakapan, serta akses demo gratis sebelum membeli.",
+  salesNormalPrice:"199000",
+  salesPromoPrice:"129000",
+  salesPromoLabel:"HARGA LAUNCHING",
+  salesWhatsapp:"085211419499",
+  salesBuyLabel:"BELI SEKARANG",
+  salesOrderMessage:"Halo, saya ingin membeli Ebook Interaktif Bahasa Korea.\\n\\n💰 Harga: {harga}\\n\\n👤 Nama: {nama}\\n📧 Email Google untuk akses: {email}\\n\\nTerima kasih.",
+  salesVideoUrl:"",
+  salesHeroImage:"",
+  salesGallery1:"",
+  salesGallery2:"",
+  salesGallery3:"",
+  salesFeature1Title:"Materi belajar tersusun rapi",
+  salesFeature1Text:"Navigasi bab dan daftar isi langsung menuju materi yang dipilih.",
+  salesFeature2Title:"Fitur interaktif & audio",
+  salesFeature2Text:"Belajar tidak hanya dari teks statis.",
+  salesFeature3Title:"Demo gratis",
+  salesFeature3Text:"Calon pembeli dapat mencoba materi sebelum membeli.",
+  salesFeature4Title:"Akses premium berlisensi",
+  salesFeature4Text:"Pembeli masuk dengan akun Google yang sudah diaktifkan."
+};
+
+let contentKeyB64=null,chapters=[],chapterGroups=[],replaceTarget=null;
+const $=id=>document.getElementById(id),loginPanel=$("loginPanel"),adminPanel=$("adminPanel");
+const CUSTOMER_SHEET_URL="https://script.google.com/macros/s/AKfycbzvNvEP1tUjkW75THMf--wGGDVGRnxJAPO4Uy3_dCWCPvGiqvYPtB7PTVjH0Sj46w1d0w/exec";
+async function adminFirebaseToken(){
+  const u=auth.currentUser;
+  if(!u||!isAdmin(u))throw new Error("Sesi admin tidak aktif.");
+  return u.getIdToken();
+}
+async function syncCustomerSheet(email,active){
+  const token=await adminFirebaseToken();
+  const body=new URLSearchParams({
+    action:"license_status",
+    email:normalizeEmail(email),
+    statusPembayaran:active?"SUDAH BAYAR":"BELUM BAYAR",
+    aksesEbook:active?"AKTIF":"TERKUNCI",
+    firebaseToken:token
+  });
+  return fetch(CUSTOMER_SHEET_URL,{method:"POST",mode:"no-cors",body}).catch(err=>console.warn("Sinkronisasi Google Sheet gagal:",err));
+}
+function normalizeEmail(v){return String(v||"").trim().toLowerCase()} function isAdmin(u){return !!u?.emailVerified&&normalizeEmail(u.email)===ADMIN_EMAIL} function showStatus(el,msg,kind=""){el.textContent=msg;el.className="status show "+kind} function clearStatus(el){el.textContent="";el.className="status"} function bytesToB64(bytes){let bin="";for(const b of bytes)bin+=String.fromCharCode(b);return btoa(bin)} function b64bytes(s){const bin=atob(s),out=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)out[i]=bin.charCodeAt(i);return out}
+async function ensureContentKey(){const ref=doc(db,"contentKeys","main"),snap=await getDoc(ref);if(snap.exists()&&snap.data()?.key){contentKeyB64=snap.data().key;return}const bytes=crypto.getRandomValues(new Uint8Array(32));contentKeyB64=bytesToB64(bytes);await setDoc(ref,{key:contentKeyB64,createdAt:new Date().toISOString()})}
+async function importContentKey(){if(!contentKeyB64)await ensureContentKey();return crypto.subtle.importKey("raw",b64bytes(contentKeyB64),{name:"AES-GCM"},false,["encrypt","decrypt"])}
+async function encryptPiece(text){const key=await importContentKey(),iv=crypto.getRandomValues(new Uint8Array(12)),ct=new Uint8Array(await crypto.subtle.encrypt({name:"AES-GCM",iv},key,new TextEncoder().encode(text)));return{iv:bytesToB64(iv),cipher:bytesToB64(ct)}}
+async function decryptPiece(ivB64,cipherB64){const key=await importContentKey(),plain=await crypto.subtle.decrypt({name:"AES-GCM",iv:b64bytes(ivB64)},key,b64bytes(cipherB64));return new TextDecoder().decode(plain)}
+function splitSafe(str,size=CHUNK_CHARS){const out=[];let i=0;while(i<str.length){let end=Math.min(str.length,i+size);if(end<str.length){const c=str.charCodeAt(end-1);if(c>=0xD800&&c<=0xDBFF)end--}out.push(str.slice(i,end));i=end}return out}
+async function commitOps(ops){for(let i=0;i<ops.length;i+=BATCH_OPS){const b=writeBatch(db);for(const op of ops.slice(i,i+BATCH_OPS)){if(op.type==="set")b.set(op.ref,op.data,op.options||{});else if(op.type==="update")b.update(op.ref,op.data);else if(op.type==="delete")b.delete(op.ref)}await b.commit()}}
+async function deleteChapterChunks(id){const snap=await getDocs(collection(db,"chapters",id,"chunks"));await commitOps(snap.docs.map(d=>({type:"delete",ref:d.ref})))}
+function accessOf(ch){return ch?.accessLevel==="free"?"free":"premium"}
+function groupTitleOf(ch){return String(ch?.groupTitle||ch?.title||"Bab").trim()||"Bab"}
+function pageTitleOf(ch){return String(ch?.pageTitle||ch?.title||ch?.fileName||"Halaman").trim()||"Halaman"}
+function groupKeyOf(ch){return String(ch?.groupKey||("legacy_"+ch.id))}
+function normalizedGroup(v){return String(v||"").trim().toLowerCase().replace(/\s+/g," ")}
+function makeGroupKey(){return "grp_"+Date.now()+"_"+Math.random().toString(36).slice(2,8)}
+function formatBytes(bytes){
+  const n=Number(bytes)||0;
+  if(n<1024)return n+" B";
+  const units=["KB","MB","GB","TB"];
+  let v=n/1024,i=0;
+  while(v>=1024&&i<units.length-1){v/=1024;i++}
+  return (v>=100?v.toFixed(0):v>=10?v.toFixed(1):v.toFixed(2))+" "+units[i];
+}
+function catalogData(ch){return{title:pageTitleOf(ch),pageTitle:pageTitleOf(ch),groupTitle:groupTitleOf(ch),groupKey:groupKeyOf(ch),fileName:ch.fileName||"",order:Number(ch.order)||0,sizeBytes:Number(ch.sizeBytes)||0,published:ch.published!==false,accessLevel:accessOf(ch),updatedAt:new Date().toISOString()}}
+async function deletePublicContent(id){const snap=await getDocs(collection(db,"publicChapters",id,"chunks"));await commitOps(snap.docs.map(d=>({type:"delete",ref:d.ref})));try{await deleteDoc(doc(db,"publicChapters",id))}catch{}}
+async function publishFreeFromHtml(id,meta,html){await deletePublicContent(id);const pieces=splitSafe(html);let ops=[];$("chapterProgress").textContent=`Menyiapkan demo gratis 0/${pieces.length}…`;for(let i=0;i<pieces.length;i++){ops.push({type:"set",ref:doc(db,"publicChapters",id,"chunks",String(i).padStart(5,"0")),data:{order:i,html:pieces[i]}});if(ops.length>=BATCH_OPS)await commitOps(ops.splice(0));$("chapterProgress").textContent=`Menyiapkan demo gratis ${i+1}/${pieces.length}…`}if(ops.length)await commitOps(ops);await setDoc(doc(db,"publicChapters",id),{...catalogData({...meta,accessLevel:"free"}),chunkCount:pieces.length},{merge:true})}
+async function publishFreeFromProtected(ch){const snap=await getDocs(query(collection(db,"chapters",ch.id,"chunks"),orderBy("order")));let parts=[],$p=$("chapterProgress");for(let i=0;i<snap.docs.length;i++){const x=snap.docs[i].data();parts.push(await decryptPiece(x.iv,x.cipher));$p.textContent=`Menyiapkan demo gratis ${i+1}/${snap.docs.length}…`}await publishFreeFromHtml(ch.id,{...ch,accessLevel:"free"},parts.join(""))}
+async function syncCatalogFor(ch){await setDoc(doc(db,"publicCatalog",ch.id),catalogData(ch),{merge:true});if(accessOf(ch)==="free")await setDoc(doc(db,"publicChapters",ch.id),catalogData(ch),{merge:true})}
+async function syncAllCatalog(){const snap=await getDocs(query(collection(db,"chapters"),orderBy("order"))),all=snap.docs.map(d=>({id:d.id,...d.data()})),ids=new Set(all.map(x=>x.id)),cat=await getDocs(collection(db,"publicCatalog"));const ops=[];for(const ch of all)ops.push({type:"set",ref:doc(db,"publicCatalog",ch.id),data:catalogData(ch),options:{merge:true}});for(const d of cat.docs)if(!ids.has(d.id))ops.push({type:"delete",ref:d.ref});await commitOps(ops);for(const ch of all){if(accessOf(ch)==="free"){const p=await getDoc(doc(db,"publicChapters",ch.id));if(!p.exists())await publishFreeFromProtected(ch);else await setDoc(doc(db,"publicChapters",ch.id),catalogData(ch),{merge:true})}}}
+async function saveChapterFile(id,title,file,order,keepMeta=false,accessLevel="premium",extra={}){const html=await file.text(),pieces=splitSafe(html);$("chapterProgress").textContent=`Mengenkripsi ${pieces.length} bagian…`;let ops=[];for(let i=0;i<pieces.length;i++){const enc=await encryptPiece(pieces[i]);ops.push({type:"set",ref:doc(db,"chapters",id,"chunks",String(i).padStart(5,"0")),data:{order:i,iv:enc.iv,cipher:enc.cipher}});if(ops.length>=BATCH_OPS)await commitOps(ops.splice(0));$("chapterProgress").textContent=`Mengunggah ${i+1}/${pieces.length} bagian…`}if(ops.length)await commitOps(ops);const pageTitle=String(extra.pageTitle||title||file.name.replace(/\.[^.]+$/,"")).trim(),meta={id,title:pageTitle,pageTitle,groupTitle:String(extra.groupTitle||pageTitle).trim(),groupKey:String(extra.groupKey||makeGroupKey()),fileName:file.name,order,chunkCount:pieces.length,sizeBytes:file.size,updatedAt:new Date().toISOString(),published:true,accessLevel:accessLevel==="free"?"free":"premium"};if(!keepMeta)meta.createdAt=new Date().toISOString();await setDoc(doc(db,"chapters",id),meta,{merge:true});if(meta.accessLevel==="free")await publishFreeFromHtml(id,meta,html);else await deletePublicContent(id);await syncCatalogFor(meta);$("chapterProgress").textContent=""}
+function activateTab(name){document.querySelectorAll(".tab[data-tab]").forEach(b=>b.classList.toggle("active",b.dataset.tab===name));document.querySelectorAll(".panel").forEach(p=>p.classList.remove("active"));$("panel-"+name).classList.add("active");if(name==="licenses")loadLicenses();if(name==="settings")loadSettings();if(name==="chapters")loadChapters();if(name==="sales")loadSalesSettings()}
+document.querySelectorAll(".tab[data-tab]").forEach(b=>b.addEventListener("click",()=>activateTab(b.dataset.tab)));$("openBookBtn").addEventListener("click",()=>window.open(BOOK_URL,"_blank"));
+async function showAdmin(){loginPanel.classList.add("hidden");adminPanel.classList.remove("hidden");await ensureContentKey();await Promise.all([loadLicenses(),loadSettings(),loadSalesSettings()]);loadCustomers();await loadChapters();try{await syncAllCatalog()}catch(e){console.error("Sync katalog demo:",e)}}
+function showLogin(msg=""){loginPanel.classList.remove("hidden");adminPanel.classList.add("hidden");if(msg)showStatus($("loginStatus"),msg,"err")}
+
+let customerRequestTimer=null;
+function waLinkNumber(v){
+  let n=String(v||"").replace(/\D/g,"");
+  if(n.startsWith("0"))n="62"+n.slice(1);
+  return n;
+}
+function renderCustomers(items){
+  const rows=$("customerRows");
+  rows.replaceChildren();
+  const list=Array.isArray(items)?items:[];
+  $("customerCount").textContent=list.length;
+  $("pendingCustomerCount").textContent=list.filter(x=>String(x.statusPembayaran||"").toUpperCase()!=="SUDAH BAYAR").length;
+  $("paidCustomerCount").textContent=list.filter(x=>String(x.aksesEbook||"").toUpperCase()==="AKTIF").length;
+  $("customerEmpty").classList.toggle("hidden",list.length>0);
+  for(const item of [...list].reverse()){
+    const tr=document.createElement("tr");
+    const vals=[item.tanggal,item.nama,item.email,item.whatsapp];
+    for(const v of vals){const td=document.createElement("td");td.textContent=v||"-";tr.appendChild(td)}
+    const tdPay=document.createElement("td"),pay=document.createElement("span");
+    const paid=String(item.statusPembayaran||"").toUpperCase()==="SUDAH BAYAR";
+    pay.className="badge "+(paid?"on":"premiumbadge");pay.textContent=item.statusPembayaran||"BELUM BAYAR";tdPay.appendChild(pay);tr.appendChild(tdPay);
+    const tdAccess=document.createElement("td"),acc=document.createElement("span");
+    const active=String(item.aksesEbook||"").toUpperCase()==="AKTIF";
+    acc.className="badge "+(active?"on":"off");acc.textContent=item.aksesEbook||"TERKUNCI";tdAccess.appendChild(acc);tr.appendChild(tdAccess);
+    const tdA=document.createElement("td"),wrap=document.createElement("div");wrap.className="actions";
+    if(!active){
+      const activate=document.createElement("button");activate.className="smallbtn mint";activate.textContent="✓ Aktifkan";
+      activate.onclick=async()=>{
+        if(!confirm(`Pembayaran ${item.nama||item.email} sudah diterima dan akses akan diaktifkan?`))return;
+        activate.disabled=true;
+        await setLicense(normalizeEmail(item.email),true);
+        setTimeout(loadCustomers,900);
+      };
+      wrap.appendChild(activate);
+    }
+    const num=waLinkNumber(item.whatsapp);
+    if(num){
+      const wa=document.createElement("button");wa.className="smallbtn soft";wa.textContent="WhatsApp";
+      wa.onclick=()=>window.open("https://wa.me/"+num,"_blank","noopener");
+      wrap.appendChild(wa);
+    }
+    tdA.appendChild(wrap);tr.appendChild(tdA);rows.appendChild(tr);
+  }
+}
+async function loadCustomers(){
+  let iframe=null,form=null,handler=null;
+  try{
+    showStatus($("customerStatus"),"Memuat data calon pembeli…","ok");
+    const token=await adminFirebaseToken();
+    const nonce=crypto.getRandomValues(new Uint32Array(4)).join("-");
+    const iframeName="customerBridge_"+Date.now();
+
+    iframe=document.createElement("iframe");
+    iframe.name=iframeName;
+    iframe.style.display="none";
+    iframe.setAttribute("aria-hidden","true");
+
+    handler=e=>{
+      const d=e.data;
+      if(!iframe || e.source!==iframe.contentWindow)return;
+      if(!d || d.type!=="ebookCustomerList" || d.nonce!==nonce)return;
+
+      window.removeEventListener("message",handler);
+      handler=null;
+      if(customerRequestTimer){clearTimeout(customerRequestTimer);customerRequestTimer=null}
+
+      if(d.ok){
+        renderCustomers(d.customers||[]);
+        showStatus($("customerStatus"),"Data calon pembeli berhasil dimuat.","ok");
+      }else{
+        showStatus($("customerStatus"),d.message||"Gagal membaca calon pembeli.","err");
+      }
+
+      setTimeout(()=>iframe&&iframe.remove(),300);
+    };
+
+    window.addEventListener("message",handler);
+
+    form=document.createElement("form");
+    form.method="POST";
+    form.action=CUSTOMER_SHEET_URL;
+    form.target=iframeName;
+    form.style.display="none";
+
+    const fields={action:"list_customers",firebaseToken:token,nonce};
+
+    for(const [k,v] of Object.entries(fields)){
+      const inp=document.createElement("input");
+      inp.type="hidden";
+      inp.name=k;
+      inp.value=v;
+      form.appendChild(inp);
+    }
+
+    document.body.append(iframe,form);
+    form.submit();
+
+    setTimeout(()=>form&&form.remove(),1000);
+
+    if(customerRequestTimer)clearTimeout(customerRequestTimer);
+    customerRequestTimer=setTimeout(()=>{
+      if(handler){window.removeEventListener("message",handler);handler=null}
+      showStatus($("customerStatus"),"Data belum berhasil dimuat. Tekan Muat Ulang sekali lagi.","err");
+      if(iframe)iframe.remove();
+    },15000);
+
+  }catch(e){
+    if(handler)window.removeEventListener("message",handler);
+    if(form)form.remove();
+    if(iframe)iframe.remove();
+    console.error(e);
+    showStatus($("customerStatus"),e.message||"Gagal memuat calon pembeli.","err");
+  }
+}
+$("refreshCustomers").onclick=loadCustomers;
+/* licenses */
+async function loadLicenses(){const rows=$("licenseRows");rows.replaceChildren();try{const snap=await getDocs(collection(db,"active")),docs=snap.docs.map(d=>({id:d.id,...d.data()})).sort((a,b)=>a.id.localeCompare(b.id));$("totalCount").textContent=docs.length;$("activeCount").textContent=docs.filter(x=>x.active===true).length;$("inactiveCount").textContent=docs.filter(x=>x.active!==true).length;$("boundCount").textContent=docs.filter(x=>!!x.deviceHash).length;$("licenseEmpty").classList.toggle("hidden",docs.length>0);for(const item of docs){const email=normalizeEmail(item.email||item.id),tr=document.createElement("tr"),tdE=document.createElement("td");tdE.textContent=email;const tdS=document.createElement("td"),badge=document.createElement("span");badge.className="badge "+(item.active===true?"on":"off");badge.innerHTML=`<span class="dot"></span>${item.active===true?"Aktif":"Nonaktif"}`;tdS.appendChild(badge);const tdD=document.createElement("td");if(item.deviceHash){tdD.innerHTML=`<b></b><div class="muted"></div>`;tdD.querySelector("b").textContent=item.deviceLabel||"Perangkat terikat";tdD.querySelector(".muted").textContent="Terdaftar: "+(item.deviceBoundAt?new Date(item.deviceBoundAt).toLocaleString("id-ID"):"-")}else tdD.innerHTML='<span class="badge off">Belum terikat</span>';const tdA=document.createElement("td"),wrap=document.createElement("div");wrap.className="actions";const toggle=document.createElement("button");toggle.className="smallbtn "+(item.active===true?"soft":"mint");toggle.textContent=item.active===true?"Nonaktifkan":"Aktifkan";toggle.onclick=()=>setLicense(email,item.active!==true);const reset=document.createElement("button");reset.className="smallbtn primary";reset.textContent="Reset Perangkat";reset.disabled=!item.deviceHash;reset.onclick=()=>confirm(`Reset perangkat ${email}?`)&&resetDevice(email);const del=document.createElement("button");del.className="smallbtn danger";del.textContent="Hapus";del.onclick=()=>confirm(`Hapus lisensi ${email}?`)&&removeLicense(email);wrap.append(toggle,reset,del);tdA.appendChild(wrap);tr.append(tdE,tdS,tdD,tdA);rows.appendChild(tr)}}catch(e){console.error(e);showStatus($("licenseStatus"),"Gagal membaca daftar lisensi.","err")}}
+async function setLicense(email,active){try{await setDoc(doc(db,"active",email),{email,active:Boolean(active)},{merge:true});await syncCustomerSheet(email,Boolean(active));showStatus($("licenseStatus"),`${email} sekarang ${active?"AKTIF":"NONAKTIF"} • Google Sheet disinkronkan.`,"ok");await loadLicenses();setTimeout(loadCustomers,700)}catch(e){console.error(e);showStatus($("licenseStatus"),"Perubahan lisensi ditolak.","err")}}
+async function resetDevice(email){try{await updateDoc(doc(db,"active",email),{deviceHash:null,deviceBoundAt:null,deviceLabel:null});showStatus($("licenseStatus"),`Perangkat ${email} sudah di-reset.`,"ok");await loadLicenses()}catch(e){showStatus($("licenseStatus"),"Gagal reset perangkat.","err")}}
+async function removeLicense(email){try{await deleteDoc(doc(db,"active",email));showStatus($("licenseStatus"),`Lisensi ${email} dihapus.`,"ok");await loadLicenses()}catch(e){showStatus($("licenseStatus"),"Gagal menghapus lisensi.","err")}}
+$("buyerForm").addEventListener("submit",async e=>{e.preventDefault();const email=normalizeEmail($("buyerEmail").value);if(!email)return;$("addBuyerBtn").disabled=true;await setLicense(email,true);$("buyerEmail").value="";$("addBuyerBtn").disabled=false});$("refreshLicenses").onclick=loadLicenses;$("copyBookUrl").onclick=async()=>{try{await navigator.clipboard.writeText(BOOK_URL);showStatus($("licenseStatus"),"URL ebook disalin.","ok")}catch{showStatus($("licenseStatus"),BOOK_URL,"ok")}};$("logoutBtn").onclick=async()=>{await signOut(auth);location.reload()};
+/* settings */
+const settingKeys=Object.keys(defaults);async function loadSettings(){try{const snap=await getDoc(doc(db,"bookSettings","main")),data={...defaults,...(snap.exists()?snap.data():{})};for(const k of settingKeys){const el=$("s-"+k);if(el)el.value=data[k]??""}for(const k of ["coverColor1","coverColor2","accentColor"]){$("c-"+k).value=data[k]||defaults[k]}clearStatus($("settingsStatus"))}catch(e){showStatus($("settingsStatus"),"Gagal memuat pengaturan ebook.","err")}}
+for(const k of ["coverColor1","coverColor2","accentColor"]){$("c-"+k).addEventListener("input",e=>$("s-"+k).value=e.target.value);$("s-"+k).addEventListener("input",e=>{if(/^#[0-9a-f]{6}$/i.test(e.target.value))$("c-"+k).value=e.target.value})}
+$("settingsForm").addEventListener("submit",async e=>{e.preventDefault();const data={updatedAt:new Date().toISOString()};for(const k of settingKeys)data[k]=$("s-"+k).value;try{$("saveSettingsBtn").disabled=true;await setDoc(doc(db,"bookSettings","main"),data,{merge:true});showStatus($("settingsStatus"),"Perubahan ebook berhasil disimpan dan langsung aktif.","ok")}catch(err){console.error(err);showStatus($("settingsStatus"),"Gagal menyimpan pengaturan ebook.","err")}finally{$("saveSettingsBtn").disabled=false}});$("loadSettingsBtn").onclick=loadSettings;
+
+/* sales page */
+const salesKeys=Object.keys(salesDefaults),salesImageKeys=["salesHeroImage","salesGallery1","salesGallery2","salesGallery3"];
+let salesImages={salesHeroImage:"",salesGallery1:"",salesGallery2:"",salesGallery3:""};
+function salesInputId(k){return "sales-"+k.replace(/^sales/,"").replace(/^./,c=>c.toLowerCase())}
+function setSalesPreview(key,value){
+  salesImages[key]=value||"";
+  const suffix=key.replace(/^sales/,"").replace(/^./,c=>c.toLowerCase()),img=$("sales-preview-"+suffix);
+  if(!img)return;
+  if(value){img.src=value;img.style.display="block"}else{img.removeAttribute("src");img.style.display="none"}
+}
+async function compressSalesImage(file){
+  if(!file||!file.type.startsWith("image/"))throw new Error("Pilih file gambar.");
+  const bitmap=await createImageBitmap(file),canvas=document.createElement("canvas");
+  let w=bitmap.width,h=bitmap.height,max=1000;
+  if(w>max){h=Math.round(h*max/w);w=max}
+  if(h>1200){w=Math.round(w*1200/h);h=1200}
+  canvas.width=w;canvas.height=h;canvas.getContext("2d").drawImage(bitmap,0,0,w,h);
+  let quality=.76,data=canvas.toDataURL("image/webp",quality);
+  while(data.length>135000&&quality>.38){quality-=.08;data=canvas.toDataURL("image/webp",quality)}
+  if(data.length>150000){
+    const ratio=Math.sqrt(150000/data.length)*.92;
+    const c2=document.createElement("canvas");c2.width=Math.max(360,Math.round(w*ratio));c2.height=Math.max(240,Math.round(h*ratio));
+    c2.getContext("2d").drawImage(canvas,0,0,c2.width,c2.height);data=c2.toDataURL("image/webp",.58)
+  }
+  if(data.length>170000)throw new Error("Foto masih terlalu besar. Pilih foto lain atau crop terlebih dahulu.");
+  return data
+}
+async function loadSalesSettings(){
+  try{
+    const snap=await getDoc(doc(db,"bookSettings","main")),data={...salesDefaults,...(snap.exists()?snap.data():{})};
+    for(const k of salesKeys){
+      if(salesImageKeys.includes(k))continue;
+      const el=$(salesInputId(k));if(el)el.value=data[k]??"";
+    }
+    for(const k of salesImageKeys)setSalesPreview(k,data[k]||"");
+    clearStatus($("salesStatus"));
+  }catch(e){console.error(e);showStatus($("salesStatus"),"Gagal memuat pengaturan halaman penjualan.","err")}
+}
+for(const key of salesImageKeys){
+  const suffix=key.replace(/^sales/,"").replace(/^./,c=>c.toLowerCase()),fileEl=$("sales-file-"+suffix),removeEl=$("sales-remove-"+suffix);
+  fileEl.addEventListener("change",async()=>{
+    const file=fileEl.files[0];if(!file)return;
+    try{showStatus($("salesStatus"),"Memproses foto…","ok");const data=await compressSalesImage(file);setSalesPreview(key,data);clearStatus($("salesStatus"))}
+    catch(e){console.error(e);showStatus($("salesStatus"),e.message||"Gagal memproses foto.","err")}
+    finally{fileEl.value=""}
+  });
+  removeEl.addEventListener("click",()=>setSalesPreview(key,""));
+}
+$("salesForm").addEventListener("submit",async e=>{
+  e.preventDefault();
+  const data={salesUpdatedAt:new Date().toISOString()};
+  for(const k of salesKeys){
+    if(salesImageKeys.includes(k))data[k]=salesImages[k]||"";
+    else{const el=$(salesInputId(k));data[k]=el?el.value:""}
+  }
+  const mediaChars=salesImageKeys.reduce((n,k)=>n+(data[k]?.length||0),0);
+  if(mediaChars>600000){showStatus($("salesStatus"),"Total foto terlalu besar. Kurangi ukuran/jumlah foto lalu simpan lagi.","err");return}
+  try{
+    $("saveSalesBtn").disabled=true;
+    await setDoc(doc(db,"bookSettings","main"),data,{merge:true});
+    showStatus($("salesStatus"),"Halaman penjualan berhasil disimpan dan langsung aktif.","ok");
+  }catch(err){console.error(err);showStatus($("salesStatus"),"Gagal menyimpan halaman penjualan.","err")}
+  finally{$("saveSalesBtn").disabled=false}
+});
+$("loadSalesBtn").onclick=loadSalesSettings;
+$("openSalesBtn").onclick=()=>window.open(SALES_URL,"_blank");
+
+/* chapters */
+function buildGroups(items){
+  const map=new Map(),out=[];
+  for(const ch of [...items].sort((a,b)=>(Number(a.order)||0)-(Number(b.order)||0))){
+    const key=groupKeyOf(ch);
+    if(!map.has(key)){const g={key,title:groupTitleOf(ch),pages:[],firstOrder:Number(ch.order)||0};map.set(key,g);out.push(g)}
+    map.get(key).pages.push(ch);
+  }
+  for(const g of out)g.pages.sort((a,b)=>(Number(a.order)||0)-(Number(b.order)||0));
+  return out.sort((a,b)=>a.firstOrder-b.firstOrder)
+}
+function groupAccess(g){return g.pages.length&&g.pages.every(p=>accessOf(p)==="free")?"free":"premium"}
+function groupBytes(g){return g.pages.reduce((n,p)=>n+(Number(p.sizeBytes)||0),0)}
+function groupPageIndex(ch,g){return g.pages.findIndex(p=>p.id===ch.id)}
+function mkMini(text,cls,fn){
+  const b=document.createElement("button");
+  b.type="button";
+  b.className=("smallbtn "+(cls||"")).trim();
+  b.textContent=text;
+  b.addEventListener("click",fn);
+  return b
+}
+function refreshGroupDatalist(){
+  const dl=$("existingGroups");dl.replaceChildren();
+  for(const g of chapterGroups){const o=document.createElement("option");o.value=g.title;dl.appendChild(o)}
+}
+async function loadChapters(){
+  const list=$("groupList");list.replaceChildren();
+  try{
+    const snap=await getDocs(query(collection(db,"chapters"),orderBy("order")));
+    chapters=snap.docs.map(d=>({id:d.id,...d.data()}));
+    chapterGroups=buildGroups(chapters);refreshGroupDatalist();
+    $("chapterEmpty").classList.toggle("hidden",chapterGroups.length>0);
+    chapterGroups.forEach((g,gi)=>{
+      const card=document.createElement("div");card.className="group-card";
+      const head=document.createElement("div");head.className="group-head";
+      const no=document.createElement("div");no.className="group-no";no.textContent=String(gi+1).padStart(2,"0");
+      const main=document.createElement("div"),title=document.createElement("div");title.className="group-title";title.textContent=g.title;
+      const meta=document.createElement("div");meta.className="group-meta";
+      const p1=document.createElement("span");p1.className="meta-pill";p1.textContent=`${g.pages.length} halaman`;
+      const p2=document.createElement("span");p2.className="badge "+(groupAccess(g)==="free"?"freebadge":"premiumbadge");p2.textContent=groupAccess(g)==="free"?"🎁 Gratis":"🔒 Premium";
+      const p3=document.createElement("span");p3.className="meta-pill";p3.textContent=formatBytes(groupBytes(g));meta.append(p1,p2,p3);main.append(title,meta);
+      const acts=document.createElement("div");acts.className="group-actions";
+      const up=mkMini("↑","soft",()=>moveGroup(gi,-1));up.disabled=gi===0;
+      const down=mkMini("↓","soft",()=>moveGroup(gi,1));down.disabled=gi===chapterGroups.length-1;
+      const toggle=mkMini(groupAccess(g)==="free"?"Jadikan Premium":"Jadikan Gratis",groupAccess(g)==="free"?"soft":"mint",()=>setGroupAccess(g,groupAccess(g)==="free"?"premium":"free"));
+      const rename=mkMini("Ubah Nama Bab","soft",()=>renameGroup(g));
+      const add=mkMini("+ Halaman","primary",()=>prefillGroup(g));
+      const expand=mkMini("Lihat Halaman","soft",()=>pages.classList.toggle("hidden"));
+      const del=mkMini("Hapus Bab","danger",()=>confirm(`Hapus seluruh ${g.pages.length} halaman dalam “${g.title}”?`)&&deleteGroup(g));
+      acts.append(up,down,toggle,rename,add,expand,del);head.append(no,main,acts);
+      const pages=document.createElement("div");pages.className="group-pages hidden";
+      g.pages.forEach((ch,pi)=>{
+        const row=document.createElement("div");row.className="page-row";
+        const pn=document.createElement("div");pn.className="page-num";pn.textContent=String(pi+1).padStart(2,"0");
+        const pm=document.createElement("div");pm.className="page-main";
+        const nm=document.createElement("div");nm.className="page-name";nm.textContent=pageTitleOf(ch);
+        const sub=document.createElement("div");sub.className="page-sub";sub.textContent=`${ch.fileName||"HTML"} • ${ch.sizeBytes?formatBytes(ch.sizeBytes):`${ch.chunkCount||0} bagian`}`;pm.append(nm,sub);
+        const pa=document.createElement("div");pa.className="page-actions";
+        const pu=mkMini("↑","soft",()=>movePageInGroup(g,pi,-1));pu.disabled=pi===0;
+        const pd=mkMini("↓","soft",()=>movePageInGroup(g,pi,1));pd.disabled=pi===g.pages.length-1;
+        const pr=mkMini("Ubah Judul","soft",()=>renamePage(ch));
+        const rep=mkMini("Ganti HTML","primary",()=>{replaceTarget=ch;$("replaceChapterInput").click()});
+        const rm=mkMini("Hapus","danger",()=>confirm(`Hapus halaman “${pageTitleOf(ch)}”?`)&&deleteSinglePage(ch));
+        pa.append(pu,pd,pr,rep,rm);row.append(pn,pm,pa);pages.appendChild(row)
+      });
+      card.append(head,pages);list.appendChild(card)
+    })
+  }catch(e){console.error(e);showStatus($("chapterStatus"),"Gagal membaca daftar bab: "+(e?.message||e),"err")}
+}
+function prefillGroup(g){$("chapterGroupInput").value=g.title;$("chapterAccessInput").value=groupAccess(g);$("chapterTitleInput").focus();window.scrollTo({top:$("panel-chapters").offsetTop-20,behavior:"smooth"})}
+async function writeSequentialOrders(groups){
+  let n=1,ops=[];
+  for(const g of groups)for(const p of g.pages){ops.push({type:"update",ref:doc(db,"chapters",p.id),data:{order:n++,updatedAt:new Date().toISOString()}})}
+  await commitOps(ops);await loadChapters();await syncAllCatalog()
+}
+async function moveGroup(i,delta){const j=i+delta;if(j<0||j>=chapterGroups.length)return;const gs=[...chapterGroups],[x]=gs.splice(i,1);gs.splice(j,0,x);try{await writeSequentialOrders(gs);showStatus($("chapterStatus"),"Urutan bab diperbarui.","ok")}catch(e){console.error(e);showStatus($("chapterStatus"),"Gagal mengubah urutan bab.","err")}}
+async function movePageInGroup(g,i,delta){const j=i+delta;if(j<0||j>=g.pages.length)return;const gs=buildGroups(chapters),target=gs.find(x=>x.key===g.key),[x]=target.pages.splice(i,1);target.pages.splice(j,0,x);try{await writeSequentialOrders(gs);showStatus($("chapterStatus"),"Urutan halaman diperbarui.","ok")}catch(e){console.error(e);showStatus($("chapterStatus"),"Gagal mengubah urutan halaman.","err")}}
+async function renameGroup(g){const title=prompt("Nama bab baru:",g.title||"");if(!title?.trim())return;try{const ops=g.pages.map(p=>({type:"update",ref:doc(db,"chapters",p.id),data:{groupTitle:title.trim(),updatedAt:new Date().toISOString()}}));await commitOps(ops);for(const p of g.pages)await syncCatalogFor({...p,groupTitle:title.trim()});showStatus($("chapterStatus"),"Nama bab diperbarui.","ok");await loadChapters()}catch(e){console.error(e);showStatus($("chapterStatus"),"Gagal mengubah nama bab.","err")}}
+async function renamePage(ch){const title=prompt("Judul halaman baru:",pageTitleOf(ch));if(!title?.trim())return;try{await updateDoc(doc(db,"chapters",ch.id),{title:title.trim(),pageTitle:title.trim(),updatedAt:new Date().toISOString()});await syncCatalogFor({...ch,title:title.trim(),pageTitle:title.trim()});showStatus($("chapterStatus"),"Judul halaman diperbarui.","ok");await loadChapters()}catch(e){console.error(e);showStatus($("chapterStatus"),"Gagal mengubah judul halaman.","err")}}
+async function setPageAccess(ch,next){if(next==="free"){await publishFreeFromProtected({...ch,accessLevel:"free"});await updateDoc(doc(db,"chapters",ch.id),{accessLevel:"free",updatedAt:new Date().toISOString()});await syncCatalogFor({...ch,accessLevel:"free"})}else{await updateDoc(doc(db,"chapters",ch.id),{accessLevel:"premium",updatedAt:new Date().toISOString()});await deletePublicContent(ch.id);await syncCatalogFor({...ch,accessLevel:"premium"})}}
+async function setGroupAccess(g,next){if(!confirm(next==="free"?`Jadikan seluruh ${g.pages.length} halaman dalam “${g.title}” GRATIS?`:`Kunci seluruh halaman “${g.title}” menjadi PREMIUM?`))return;try{clearStatus($("chapterStatus"));for(let i=0;i<g.pages.length;i++){$("chapterProgress").textContent=`Mengubah akses halaman ${i+1}/${g.pages.length}…`;await setPageAccess(g.pages[i],next)}$("chapterProgress").textContent="";showStatus($("chapterStatus"),next==="free"?"Seluruh bab sekarang GRATIS.":"Seluruh bab sekarang PREMIUM.","ok");await loadChapters()}catch(e){console.error(e);$("chapterProgress").textContent="";showStatus($("chapterStatus"),"Gagal mengubah akses bab.","err")}}
+async function deletePageData(ch){await deleteChapterChunks(ch.id);await deletePublicContent(ch.id);try{await deleteDoc(doc(db,"publicCatalog",ch.id))}catch{}await deleteDoc(doc(db,"chapters",ch.id))}
+async function deleteSinglePage(ch){try{$("chapterProgress").textContent="Menghapus halaman…";await deletePageData(ch);$("chapterProgress").textContent="";showStatus($("chapterStatus"),"Halaman berhasil dihapus.","ok");await normalizeOrders()}catch(e){console.error(e);$("chapterProgress").textContent="";showStatus($("chapterStatus"),"Gagal menghapus halaman.","err")}}
+async function deleteGroup(g){try{for(let i=0;i<g.pages.length;i++){$("chapterProgress").textContent=`Menghapus halaman ${i+1}/${g.pages.length}…`;await deletePageData(g.pages[i])}$("chapterProgress").textContent="";showStatus($("chapterStatus"),"Bab beserta seluruh halamannya berhasil dihapus.","ok");await normalizeOrders()}catch(e){console.error(e);$("chapterProgress").textContent="";showStatus($("chapterStatus"),"Gagal menghapus bab.","err")}}
+async function normalizeOrders(){const snap=await getDocs(query(collection(db,"chapters"),orderBy("order"))),docs=snap.docs;const ops=docs.map((d,i)=>({type:"update",ref:d.ref,data:{order:i+1}}));if(ops.length)await commitOps(ops);await loadChapters();await syncAllCatalog()}
+async function shiftAfter(order){const later=chapters.filter(x=>(Number(x.order)||0)>order).sort((a,b)=>(Number(b.order)||0)-(Number(a.order)||0));const ops=later.map(x=>({type:"update",ref:doc(db,"chapters",x.id),data:{order:(Number(x.order)||0)+1}}));if(ops.length)await commitOps(ops)}
+$("chapterForm").addEventListener("submit",async e=>{
+  e.preventDefault();const file=$("chapterFileInput").files[0];if(!file)return;
+  const groupTitle=$("chapterGroupInput").value.trim();if(!groupTitle){showStatus($("chapterStatus"),"Isi Nama bab terlebih dahulu.","err");return}
+  const existing=chapterGroups.find(g=>normalizedGroup(g.title)===normalizedGroup(groupTitle));
+  const groupKey=existing?.key||makeGroupKey(),accessLevel=existing?groupAccess(existing):($("chapterAccessInput").value==="free"?"free":"premium");
+  const pageTitle=$("chapterTitleInput").value.trim()||file.name.replace(/\.[^.]+$/,"");
+  let order=(chapters.at(-1)?.order||0)+1;
+  try{
+    $("uploadChapterBtn").disabled=true;clearStatus($("chapterStatus"));
+    if(existing){const last=Math.max(...existing.pages.map(p=>Number(p.order)||0));await shiftAfter(last);order=last+1}
+    const id="ch_"+Date.now()+"_"+Math.random().toString(36).slice(2,8);
+    await saveChapterFile(id,pageTitle,file,order,false,accessLevel,{groupKey,groupTitle,pageTitle});
+    showStatus($("chapterStatus"),`Halaman “${pageTitle}” berhasil ditambahkan ke “${groupTitle}”.`,"ok");
+    $("chapterTitleInput").value="";$("chapterFileInput").value="";$("chapterGroupInput").value=groupTitle;$("chapterAccessInput").value=accessLevel;await loadChapters()
+  }catch(err){console.error(err);showStatus($("chapterStatus"),"Gagal menambahkan halaman. Coba lagi dengan koneksi stabil.","err")}
+  finally{$("uploadChapterBtn").disabled=false;$("chapterProgress").textContent=""}
+});
+$("mergeLegacyBtn").addEventListener("click",async()=>{
+  const from=Number($("mergeFrom").value),to=Number($("mergeTo").value),title=$("mergeGroupTitle").value.trim();
+  if(!from||!to||from<1||to<from||to>chapters.length||!title){showStatus($("chapterStatus"),"Isi urutan mulai, akhir, dan nama bab dengan benar.","err");return}
+  const selected=chapters.slice(from-1,to),key=makeGroupKey();
+  try{
+    const ops=selected.map(p=>({type:"update",ref:doc(db,"chapters",p.id),data:{groupKey:key,groupTitle:title,pageTitle:p.pageTitle||p.title||p.fileName||"Halaman",updatedAt:new Date().toISOString()}}));await commitOps(ops);
+    for(const p of selected)await syncCatalogFor({...p,groupKey:key,groupTitle:title,pageTitle:p.pageTitle||p.title||p.fileName||"Halaman"});
+    showStatus($("chapterStatus"),`${selected.length} halaman berhasil digabung menjadi “${title}”.`,"ok");$("mergeFrom").value="";$("mergeTo").value="";$("mergeGroupTitle").value="";await loadChapters()
+  }catch(e){console.error(e);showStatus($("chapterStatus"),"Gagal menggabungkan halaman lama.","err")}
+});
+$("replaceChapterInput").addEventListener("change",async()=>{
+  const file=$("replaceChapterInput").files[0],ch=replaceTarget;if(!file||!ch)return;
+  try{$("chapterProgress").textContent="Mengganti materi…";await deleteChapterChunks(ch.id);await saveChapterFile(ch.id,pageTitleOf(ch),file,ch.order,true,accessOf(ch),{groupKey:groupKeyOf(ch),groupTitle:groupTitleOf(ch),pageTitle:pageTitleOf(ch)});showStatus($("chapterStatus"),`Materi ${pageTitleOf(ch)} berhasil diganti.`,"ok");await loadChapters()}
+  catch(e){console.error(e);showStatus($("chapterStatus"),"Gagal mengganti materi.","err")}
+  finally{$("replaceChapterInput").value="";replaceTarget=null;$("chapterProgress").textContent=""}
+});
+$("refreshChapters").onclick=loadChapters;
+/* auth */
+$("googleAdminLogin").addEventListener("click",async()=>{clearStatus($("loginStatus"));$("googleAdminLogin").disabled=true;try{const r=await signInWithPopup(auth,provider);if(isAdmin(r.user))await showAdmin();else{await signOut(auth);showLogin("Akun Google ini bukan akun admin.")}}catch(e){console.error(e);showLogin("Gagal login admin dengan Google.")}finally{$("googleAdminLogin").disabled=false}});onAuthStateChanged(auth,u=>{if(u&&isAdmin(u))showAdmin();else if(!u)showLogin()});
+</script>
+</body>
+</html>
