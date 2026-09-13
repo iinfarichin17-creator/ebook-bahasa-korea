@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<title>Bahasa Korea — Ebook Berlisensi</title>
+<style>
+:root{--navy:#12233f;--navy2:#17365f;--mint:#9fe8d9;--green:#16a085;--paper:#fffdf8;--ink:#13233a;--muted:#6a788a;--line:#dce7ef;--shadow:0 18px 55px rgba(18,35,63,.14)}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:"Noto Sans KR","Malgun Gothic","Segoe UI",Arial,sans-serif;color:var(--ink);background:#edf5f8}
+button{font:inherit}.hidden{display:none!important}
+/* LOGIN */
+#loginLayer{min-height:100vh;display:grid;place-items:center;padding:22px;background:radial-gradient(circle at 12% 8%,rgba(22,160,133,.22),transparent 27%),linear-gradient(145deg,var(--navy),var(--navy2) 68%,#159786);color:#fff}
+.login-card{width:min(480px,100%);border:1px solid rgba(255,255,255,.16);background:rgba(7,25,48,.58);backdrop-filter:blur(16px);border-radius:28px;padding:30px 26px;box-shadow:0 28px 80px rgba(0,0,0,.28)}
+.logo{width:70px;height:70px;border-radius:24px;display:grid;place-items:center;margin:0 auto 18px;background:rgba(159,232,217,.14);border:1px solid rgba(159,232,217,.3);font-size:32px}.login-card h1{text-align:center;margin:0;font-size:28px}.login-card .sub{text-align:center;color:rgba(255,255,255,.72);font-size:14px;line-height:1.7;margin:8px auto 23px;max-width:380px}
+.google-btn{width:100%;border:0;border-radius:999px;padding:13px 16px;background:var(--mint);color:#12314f;font-weight:950;font-size:14px;cursor:pointer}.google-btn:disabled{opacity:.55;cursor:wait}.demo-btn{width:100%;margin-top:10px;border:1px solid rgba(255,255,255,.24);border-radius:999px;padding:12px 16px;background:rgba(255,255,255,.08);color:#fff;font-weight:900;cursor:pointer}.gmark{display:inline-grid;place-items:center;width:24px;height:24px;margin-right:9px;border-radius:50%;background:#fff;color:#4285f4;font-weight:950;font-family:Arial,sans-serif;box-shadow:0 1px 4px rgba(0,0,0,.18);vertical-align:middle}
+.status{display:none;margin-top:16px;padding:11px 13px;border-radius:14px;font-size:12px;line-height:1.6;background:rgba(255,255,255,.08);color:rgba(255,255,255,.82)}.status.show{display:block}.status.err{background:rgba(190,54,54,.20);border:1px solid rgba(255,130,130,.22)}.small{margin-top:18px;text-align:center;color:rgba(255,255,255,.48);font-size:10px;line-height:1.5}
+/* READER */
+#readerApp{height:100vh;height:100dvh;min-height:0;display:flex;flex-direction:column;padding:max(8px,env(safe-area-inset-top)) max(8px,env(safe-area-inset-right)) max(8px,env(safe-area-inset-bottom)) max(8px,env(safe-area-inset-left));background:linear-gradient(180deg,#edf5f8,#f8fbfc)}
+.book-shell{flex:1;min-height:0;display:grid;grid-template-areas:"page";grid-template-rows:minmax(0,1fr);overflow:hidden}.page{grid-area:page;display:none;width:min(1100px,100%);height:100%;min-height:0;margin:0 auto;background:var(--paper);box-shadow:var(--shadow);border-radius:24px;overflow:hidden;position:relative}.page.active{display:block;animation:pageIn .22s ease-out}@keyframes pageIn{from{opacity:.45;transform:translateX(10px) scale(.995)}to{opacity:1;transform:none}}
+.page-inner{height:100%;padding:clamp(28px,5vh,62px) clamp(24px,6vw,80px);overflow:auto}.cover{color:#fff;isolation:isolate}.cover .page-inner{display:flex;flex-direction:column;justify-content:space-between;position:relative;z-index:2;overflow:auto}.cover-rings{position:absolute;right:-78px;top:-16px;width:332px;height:332px;border-radius:50%;border:42px solid rgba(255,255,255,.06);box-shadow:0 0 0 48px rgba(255,255,255,.04),0 0 0 96px rgba(255,255,255,.025)}.cover-faint-ko{position:absolute;left:-10px;bottom:24px;font-size:108px;font-weight:900;line-height:1;letter-spacing:.04em;color:rgba(255,255,255,.07);white-space:nowrap;pointer-events:none}.eyebrow{display:inline-flex;align-self:flex-start;border:1px solid rgba(255,255,255,.18);background:rgba(5,31,58,.36);border-radius:999px;padding:9px 14px;font-size:12px;font-weight:900;letter-spacing:.16em}.cover-main{position:relative;z-index:2;margin:88px 0 auto;max-width:680px}.cover-line{width:104px;height:5px;border-radius:999px;background:var(--mint);margin-bottom:22px}.cover-title-small{font-size:clamp(30px,4vw,44px);font-weight:900;letter-spacing:.12em;color:var(--mint);margin-bottom:10px}.cover-title{font-family:Georgia,"Times New Roman",serif;font-size:clamp(58px,8vw,94px);line-height:.96;font-weight:700;letter-spacing:-.035em;margin:0;color:#fff;text-shadow:0 8px 24px rgba(0,0,0,.10)}.cover-subtitle{margin-top:28px;font-size:18px;line-height:1.75;color:rgba(255,255,255,.82);max-width:610px}.cover-start-btn{margin-top:28px;border:0;border-radius:999px;padding:14px 22px;font-weight:900;color:#17314f;background:var(--mint);cursor:pointer}.cover-footer{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;color:rgba(255,255,255,.82);font-size:13px;position:relative;z-index:2}.cover-footer b{font-size:15px;color:#fff}.cover-footer-ko{text-align:right}
+.section-kicker{color:var(--green);font-weight:900;text-transform:uppercase;letter-spacing:.14em;font-size:12px}.section-title{margin:4px 0 18px;font-family:Georgia,"Times New Roman",serif;font-size:38px;line-height:1.12;color:var(--navy)}.section-lead{color:var(--muted);max-width:760px;margin-top:-6px;margin-bottom:24px;line-height:1.65}.toc-list{display:grid;gap:8px}.toc-item{display:grid;grid-template-columns:44px 1fr auto;align-items:center;gap:13px;border:0;border-bottom:1px solid var(--line);padding:10px 2px;background:transparent;text-align:left;cursor:pointer}.toc-item:hover{padding-left:7px}.toc-no{width:36px;height:36px;border-radius:12px;display:grid;place-items:center;background:#e7f8f2;color:#087765;font-size:12px;font-weight:900}.toc-label{font-weight:850;color:var(--navy)}.toc-file{font-size:11px;color:#9aa4af;margin-top:2px}.toc-arrow{font-size:18px;color:#99a4b0}.toc-item.locked .toc-no{background:#fff3dc;color:#8a5b00}.toc-item.free .toc-file{color:#087765;font-weight:850}.toc-item.locked .toc-file{color:#9a6a17;font-weight:850}.empty{text-align:center;color:var(--muted);padding:60px 20px}
+.chapter-page{display:none;flex-direction:column}.chapter-page.active{display:flex}.chapter-head{flex:0 0 auto;padding:8px 11px;border-bottom:1px solid var(--line);background:#fbfdfd;display:flex;gap:9px;align-items:center;min-height:52px}.chapter-badge{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:var(--navy);color:#fff;font-weight:900;font-size:13px;flex:0 0 34px}.chapter-title-wrap{min-width:0;line-height:1.15}.chapter-title{font-family:Georgia,"Times New Roman",serif;font-size:20px;color:var(--navy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.chapter-file{font-size:10px;color:#8390a0;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.chapter-frame{flex:1;min-height:0;width:100%;border:0;background:#fff}.chapter-loading{display:grid;place-items:center;height:100%;color:var(--muted);font-weight:800}.locked-page .page-inner{display:flex;align-items:center;justify-content:center;text-align:center}.locked-card{max-width:560px;padding:34px 26px;border:1px solid var(--line);border-radius:24px;background:#fff;box-shadow:0 16px 45px rgba(18,35,63,.08)}.locked-icon{font-size:54px}.locked-card h2{font-family:Georgia,"Times New Roman",serif;color:var(--navy);font-size:34px;margin:12px 0 8px}.locked-card p{color:var(--muted);line-height:1.7}.locked-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px}.locked-actions button,.locked-actions a{border:0;border-radius:999px;padding:12px 16px;font-weight:900;text-decoration:none;cursor:pointer}.locked-login{background:var(--navy);color:#fff}.locked-buy{background:var(--mint);color:#12314f}
+.closing{background:linear-gradient(160deg,rgba(18,35,63,.99),rgba(18,35,63,.94));color:#fff}.closing .page-inner{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}.closing-mark{width:78px;height:78px;border-radius:26px;display:grid;place-items:center;background:rgba(22,160,133,.20);border:1px solid rgba(143,237,219,.30);font-size:34px;margin-bottom:28px}.closing-title{font-family:Georgia,"Times New Roman",serif;font-size:clamp(42px,7vw,72px);line-height:1.05;margin:0}.closing-sub{margin-top:18px;color:rgba(255,255,255,.72);max-width:600px;line-height:1.7;white-space:pre-line}
+.license-chip{position:relative;z-index:10000;flex-shrink:0;width:min(1100px,100%);min-height:38px;margin:0 auto 8px;display:flex;justify-content:flex-end;gap:8px;align-items:center;padding:6px 9px;border-radius:14px;background:rgba(18,35,63,.96);color:#fff;border:1px solid rgba(255,255,255,.12);font:800 10px/1.2 Arial,sans-serif;box-shadow:0 6px 18px rgba(18,35,63,.14)}.license-chip button{border:0;background:rgba(255,255,255,.14);color:#fff;border-radius:999px;padding:6px 10px;font-weight:850;white-space:nowrap}.watermark{position:fixed;left:50%;top:50%;z-index:9990;pointer-events:none;user-select:none;transform:translate(-50%,-50%) rotate(-24deg);font:950 clamp(22px,4vw,52px)/1 Arial,sans-serif;color:rgba(18,35,63,.055);white-space:nowrap}
+@media(max-width:720px){#readerApp{padding:max(7px,env(safe-area-inset-top)) max(7px,env(safe-area-inset-right)) max(7px,env(safe-area-inset-bottom)) max(7px,env(safe-area-inset-left))}.page{width:100%;border-radius:16px}.page-inner{padding:30px 22px}.cover .page-inner{padding:54px 24px 34px}.cover-main{margin:90px 0 auto}.cover-rings{right:-132px;top:-24px;transform:scale(.84)}.cover-title{font-size:clamp(48px,14vw,74px)}.cover-subtitle{font-size:15px;margin-top:20px}.cover-footer{font-size:12px}.cover-footer-ko{text-align:right}.license-chip{max-width:calc(100vw - 14px);min-height:40px;border-radius:13px}.license-chip span{max-width:62vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.section-title{font-size:32px}}
+.toc-group>.toc-item{width:100%}.toc-subpages{display:grid;gap:4px;margin:4px 0 8px 49px}.toc-subpage{border:0;border-bottom:1px solid var(--line);background:transparent;color:var(--navy);padding:10px 4px;text-align:left;cursor:pointer;font-size:13px;line-height:1.5}.toc-subpage:hover{background:#e7f8f2}.toc-subpage:focus-visible,.toc-item:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+</style>
+</head>
+<body>
+<section id="loginLayer">
+  <div class="login-card">
+    <div class="logo">🔐</div>
+    <h1>Ebook Berlisensi</h1>
+    <p class="sub">Masuk dengan akun Google yang sudah diaktifkan. Setiap lisensi hanya dapat terikat pada <b>1 perangkat/browser</b>.</p>
+    <button class="google-btn" id="googleLoginBtn" type="button"><span class="gmark" aria-hidden="true">G</span> Masuk Pembeli dengan Google</button>
+    <button class="demo-btn" id="demoBtn" type="button">🎁 Coba Materi Gratis Tanpa Login</button>
+    <div class="status" id="status"></div>
+    <div class="small">Jika ganti HP atau browser, minta admin melakukan Reset Perangkat.</div>
+  </div>
+</section>
+
+<div id="readerApp" class="hidden">
+  <div class="license-chip"><span id="modeIcon">🎁</span> <span id="licensedEmail"></span><button id="logoutBtn" type="button">Masuk Pembeli</button></div>
+  <div class="watermark" id="watermark"></div>
+  <main class="book-shell">
+    <section class="page cover active" id="coverPage">
+      <div class="page-inner">
+        <div class="cover-rings" aria-hidden="true"></div><div class="cover-faint-ko" aria-hidden="true">가나다라마바사</div>
+        <div class="eyebrow" id="eyebrow"></div>
+        <div class="cover-main"><div class="cover-line" id="coverLine"></div><div class="cover-title-small" id="titleSmall"></div><h1 class="cover-title" id="titleMain"></h1><div class="cover-subtitle" id="subtitle"></div><button class="cover-start-btn" id="coverStartBtn" type="button">Mulai Membaca →</button></div>
+        <div class="cover-footer"><div><b id="author"></b><br><span id="edition"></span></div><div class="cover-footer-ko" id="coverKo"></div></div>
+      </div>
+    </section>
+    <section class="page" id="tocPage"><div class="page-inner"><div class="section-kicker" id="tocKicker"></div><h2 class="section-title" id="tocTitle"></h2><p class="section-lead" id="tocLead"></p><nav class="toc-list" id="tocList"></nav><div class="empty hidden" id="tocEmpty">Belum ada bab yang dipublikasikan.</div></div></section>
+    <section class="page chapter-page" id="chapterPage"><div class="chapter-head"><div class="chapter-badge" id="chapterBadge"></div><div class="chapter-title-wrap"><div class="chapter-title" id="chapterTitle"></div><div class="chapter-file" id="chapterFile"></div></div></div><div id="chapterLoading" class="chapter-loading">Memuat materi…</div><iframe id="chapterFrame" class="chapter-frame hidden" title="Materi ebook" allow="autoplay; fullscreen" sandbox="allow-scripts allow-same-origin allow-forms allow-modals allow-popups allow-downloads"></iframe></section>
+    <section class="page locked-page" id="lockedPage"><div class="page-inner"><div class="locked-card"><div class="locked-icon">🔒</div><h2 id="lockedTitle">Materi Premium</h2><p id="lockedMessage">Materi ini khusus pembeli berlisensi.</p><div class="locked-actions"><button class="locked-login" id="lockedLoginBtn" type="button">Masuk sebagai Pembeli</button><a class="locked-buy hidden" id="purchaseBtn" target="_blank" rel="noopener">Beli Akses Lengkap</a></div></div></div></section>
+    <section class="page closing" id="closingPage"><div class="page-inner"><div class="closing-mark">✦</div><div class="section-kicker" style="color:#8fe7d7" id="closingKicker"></div><h2 class="closing-title" id="closingTitle"></h2><p class="closing-sub" id="closingSub"></p></div></section>
+  </main>
+</div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut, setPersistence, browserLocalPersistence } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
+import { getFirestore, doc, getDoc, getDocs, collection, query, orderBy, runTransaction } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+
+const firebaseConfig={"apiKey":"AIzaSyBsMtisaBEefzqDyytItu6i75-M94CuFwE","authDomain":"ebook-bahasa-korea.firebaseapp.com","projectId":"ebook-bahasa-korea","storageBucket":"ebook-bahasa-korea.firebasestorage.app","messagingSenderId":"36005777127","appId":"1:36005777127:web:0bf23e0656cc3b2ce31c42"};
+const app=initializeApp(firebaseConfig),auth=getAuth(app),db=getFirestore(app);await setPersistence(auth,browserLocalPersistence);
+const provider=new GoogleAuthProvider();provider.setCustomParameters({prompt:"select_account"});
+const DEVICE_SECRET_PREFIX="ebook_device_secret_v2:",WRAPPED_KEY_PREFIX="ebook_wrapped_key_v2:";
+const defaults={eyebrow:"EBOOK • BAHASA KOREA",titleSmall:"MUDAH",titleMain:"Bahasa Korea",subtitle:"Template ebook interaktif yang dapat Anda edit, kembangkan, dan gunakan kembali untuk berbagai materi pembelajaran.",author:"Nama Penulis / Brand",edition:"Edisi Master • 2026",coverKo:"한국어 학습 가이드",tocKicker:"Navigasi Ebook",tocTitle:"Daftar Isi",tocLead:"Pilih bab untuk langsung menuju materi.",demoMessage:"Coba beberapa materi gratis sebelum membeli akses lengkap.",purchaseLabel:"Beli Akses Lengkap",purchaseUrl:"",closingKicker:"Sampai Bertemu di Materi Berikutnya",closingTitle:"Tetap Semangat",closingSub:"작은 진전도 진전입니다.\nSetiap kemajuan kecil tetaplah sebuah kemajuan.",coverColor1:"#17365f",coverColor2:"#1aa696",accentColor:"#9fe8d9"};
+const loginLayer=document.getElementById("loginLayer"),readerApp=document.getElementById("readerApp"),statusEl=document.getElementById("status"),loginBtn=document.getElementById("googleLoginBtn"),demoBtn=document.getElementById("demoBtn"),modeBtn=document.getElementById("logoutBtn");
+let contentKeyB64=null,chapters=[],chapterGroups=[],currentIndex=0,chapterCache=new Map(),busy=false,accessMode="demo",bookConfig={...defaults};
+function storageKey(prefix,email){return prefix+String(email||"").trim().toLowerCase()}
+function bytesToB64(bytes){let bin="";for(const b of bytes)bin+=String.fromCharCode(b);return btoa(bin)}
+function b64bytes(s){const bin=atob(s),out=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)out[i]=bin.charCodeAt(i);return out}
+function randomSecret(){const bytes=crypto.getRandomValues(new Uint8Array(32));return bytesToB64(bytes).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/g,"")}
+async function sha256Hex(text){const digest=new Uint8Array(await crypto.subtle.digest("SHA-256",new TextEncoder().encode(text)));return [...digest].map(b=>b.toString(16).padStart(2,"0")).join("")}
+function deviceLabel(){const platform=navigator.userAgentData?.platform||navigator.platform||"Perangkat",ua=navigator.userAgent||"Browser";let browser="Browser";if(/SamsungBrowser\//i.test(ua))browser="Samsung Internet";else if(/Edg\//i.test(ua))browser="Edge";else if(/Chrome\//i.test(ua))browser="Chrome";else if(/Firefox\//i.test(ua))browser="Firefox";else if(/Safari\//i.test(ua)&&!/Chrome\//i.test(ua))browser="Safari";return `${platform} • ${browser}`.slice(0,120)}
+async function wrappingKey(secret){const raw=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(secret));return crypto.subtle.importKey("raw",raw,{name:"AES-GCM"},false,["encrypt","decrypt"])}
+async function wrapContentKey(keyB64,secret){const iv=crypto.getRandomValues(new Uint8Array(12)),key=await wrappingKey(secret),ct=new Uint8Array(await crypto.subtle.encrypt({name:"AES-GCM",iv},key,new TextEncoder().encode(keyB64)));return JSON.stringify({v:1,iv:bytesToB64(iv),ct:bytesToB64(ct)})}
+async function unwrapContentKey(payload,secret){const data=JSON.parse(payload),key=await wrappingKey(secret),plain=await crypto.subtle.decrypt({name:"AES-GCM",iv:b64bytes(data.iv)},key,b64bytes(data.ct));return new TextDecoder().decode(plain)}
+async function importContentKey(){return crypto.subtle.importKey("raw",b64bytes(contentKeyB64),{name:"AES-GCM"},false,["decrypt"])}
+async function decryptPiece(ivB64,cipherB64){const key=await importContentKey(),plain=await crypto.subtle.decrypt({name:"AES-GCM",iv:b64bytes(ivB64)},key,b64bytes(cipherB64));return new TextDecoder().decode(plain)}
+function setStatus(msg,kind=""){statusEl.textContent=msg;statusEl.className="status show "+kind}
+function setBusy(v){busy=v;loginBtn.disabled=v;loginBtn.innerHTML=v?"Memproses…":'<span class="gmark" aria-hidden="true">G</span> Masuk Pembeli dengan Google'}
+function accessOf(ch){return ch?.accessLevel==="free"?"free":"premium"}
+async function obtainDeviceKey(user){
+ const email=user.email.toLowerCase(),licenseRef=doc(db,"active",email),licenseSnap=await getDoc(licenseRef);
+ if(!licenseSnap.exists()||licenseSnap.data()?.active!==true)throw new Error("license-inactive");
+ const license=licenseSnap.data(),boundHash=license.deviceHash??null,secretName=storageKey(DEVICE_SECRET_PREFIX,email),wrappedName=storageKey(WRAPPED_KEY_PREFIX,email),localSecret=localStorage.getItem(secretName);
+ if(boundHash){if(!localSecret)throw new Error("different-device");if(await sha256Hex(localSecret)!==boundHash)throw new Error("different-device");const wrapped=localStorage.getItem(wrappedName);if(!wrapped)throw new Error("local-key-missing");contentKeyB64=await unwrapContentKey(wrapped,localSecret);return}
+ const keySnap=await getDoc(doc(db,"contentKeys","main"));if(!keySnap.exists()||!keySnap.data()?.key)throw new Error("content-key-unavailable");
+ const newSecret=randomSecret(),newHash=await sha256Hex(newSecret),boundAt=new Date().toISOString(),label=deviceLabel(),wrapped=await wrapContentKey(keySnap.data().key,newSecret);localStorage.setItem(secretName,newSecret);localStorage.setItem(wrappedName,wrapped);
+ try{await runTransaction(db,async tx=>{const latest=await tx.get(licenseRef);if(!latest.exists()||latest.data()?.active!==true)throw new Error("license-inactive");if(latest.data().deviceHash)throw new Error("already-bound");tx.update(licenseRef,{deviceHash:newHash,deviceBoundAt:boundAt,deviceLabel:label})})}catch(e){localStorage.removeItem(secretName);localStorage.removeItem(wrappedName);throw e}
+ contentKeyB64=keySnap.data().key;
+}
+function applySettings(c){bookConfig={...defaults,...c};for(const id of ["eyebrow","titleSmall","titleMain","subtitle","author","edition","coverKo","tocKicker","tocTitle","tocLead","closingKicker","closingTitle","closingSub"])document.getElementById(id).textContent=bookConfig[id]??"";document.documentElement.style.setProperty("--mint",bookConfig.accentColor||defaults.accentColor);document.getElementById("coverPage").style.background=`linear-gradient(145deg,${bookConfig.coverColor1||defaults.coverColor1} 0%,${bookConfig.coverColor1||defaults.coverColor1} 58%,${bookConfig.coverColor2||defaults.coverColor2} 100%)`;document.getElementById("coverLine").style.background=bookConfig.accentColor||defaults.accentColor;document.getElementById("lockedMessage").textContent=bookConfig.demoMessage||defaults.demoMessage;const buy=document.getElementById("purchaseBtn"),url=String(bookConfig.purchaseUrl||"").trim();buy.textContent=bookConfig.purchaseLabel||defaults.purchaseLabel;if(/^https?:\/\//i.test(url)){buy.href=url;buy.classList.remove("hidden")}else{buy.removeAttribute("href");buy.classList.add("hidden")}}
+function showReader(mode,email=""){accessMode=mode;loginLayer.classList.add("hidden");readerApp.classList.remove("hidden");if(mode==="licensed"){document.getElementById("modeIcon").textContent="🔐";document.getElementById("licensedEmail").textContent=`Licensed: ${email}`;document.getElementById("watermark").textContent=`LICENSED TO • ${email}`;modeBtn.textContent="Keluar"}else{document.getElementById("modeIcon").textContent="🎁";document.getElementById("licensedEmail").textContent="Mode Demo Gratis";document.getElementById("watermark").textContent="DEMO GRATIS";modeBtn.textContent="Masuk Pembeli"}}
+function openLogin(){loginLayer.classList.remove("hidden");if(accessMode==="demo")readerApp.classList.add("hidden");setStatus("Masuk dengan akun Google yang sudah diaktifkan admin.")}
+function groupTitleOf(ch){return String(ch?.groupTitle||ch?.title||"Bab").trim()||"Bab"}
+function pageTitleOf(ch){return String(ch?.pageTitle||ch?.title||ch?.fileName||"Halaman").trim()||"Halaman"}
+function groupKeyOf(ch){return String(ch?.groupKey||("legacy_"+ch.id))}
+function buildGroups(items){const map=new Map(),out=[];items.forEach((ch,i)=>{const key=groupKeyOf(ch);if(!map.has(key)){const g={key,title:groupTitleOf(ch),pages:[],firstFlatIndex:i};map.set(key,g);out.push(g)}map.get(key).pages.push({...ch,flatIndex:i})});return out}
+function groupAccess(g){return g.pages.length&&g.pages.every(p=>accessOf(p)==="free")?"free":"premium"}
+function groupForChapter(ch){return chapterGroups.find(g=>g.key===groupKeyOf(ch))}
+async function loadBookData(mode){const s=await getDoc(doc(db,"bookSettings","main"));applySettings(s.exists()?s.data():defaults);if(mode==="licensed"){const snap=await getDocs(query(collection(db,"chapters"),orderBy("order")));chapters=snap.docs.map(d=>({id:d.id,...d.data()})).filter(x=>x.published!==false)}else{const snap=await getDocs(query(collection(db,"publicCatalog"),orderBy("order")));chapters=snap.docs.map(d=>({id:d.id,...d.data()})).filter(x=>x.published!==false)}chapterGroups=buildGroups(chapters);chapterCache.clear();buildToc();bookReady=true;await showPage(indexFromHistory(history.state),{historyMode:"replace"})}
+function buildToc(){const list=document.getElementById("tocList"),empty=document.getElementById("tocEmpty");list.replaceChildren();empty.classList.toggle("hidden",chapterGroups.length>0);chapterGroups.forEach((g,i)=>{const free=groupAccess(g)==="free",b=document.createElement("button");b.className="toc-item";if(accessMode==="demo")b.classList.add(free?"free":"locked");b.innerHTML=`<span class="toc-no">${String(i+1).padStart(2,"0")}</span><span><span class="toc-label"></span><span class="toc-file"></span></span><span class="toc-arrow">${accessMode==="demo"&&!free?"🔒":"›"}</span>`;b.querySelector(".toc-label").textContent=g.title||`Bab ${i+1}`;b.querySelector(".toc-file").textContent=accessMode==="demo"?(free?`GRATIS • ${g.pages.length} halaman`:`PREMIUM • ${g.pages.length} halaman • Login pembeli untuk membuka`):`${g.pages.length} halaman`;b.addEventListener("click",()=>showPage(g.firstFlatIndex+2));
+if(g.pages.length===1){list.appendChild(b)}else{
+  const group=document.createElement("div"),pages=document.createElement("div");
+  group.className="toc-group";pages.className="toc-subpages";
+  g.pages.forEach((page,pageIndex)=>{
+    const link=document.createElement("button");
+    link.type="button";link.className="toc-subpage";
+    link.textContent=`Halaman ${pageIndex+1} • ${pageTitleOf(page)}`;
+    link.addEventListener("click",()=>showPage(page.flatIndex+2));
+    pages.appendChild(link);
+  });
+  group.append(b,pages);list.appendChild(group);
+}})}
+function totalPages(){return chapters.length+3}
+function pageInfoByFlat(flat){const ch=chapters[flat],g=groupForChapter(ch),pi=g?g.pages.findIndex(p=>p.id===ch.id):-1,gi=g?chapterGroups.findIndex(x=>x.key===g.key):-1;return{ch,g,pi,gi}}
+// Browser history keeps a chapter one Back action away from the table of contents.
+const READER_HISTORY_KEY="ebookReaderNavigation";
+let bookReady=false,chapterRenderToken=0,tocScrollTop=0;
+function indexFromHistory(state){
+  const route=state?.[READER_HISTORY_KEY];
+  if(!route||route.mode!==accessMode)return 0;
+  if(route.page==="toc")return 1;
+  if(route.page==="closing")return totalPages()-1;
+  if(route.page==="chapter"){
+    const i=chapters.findIndex(ch=>ch.id===route.chapterId);
+    return i<0?1:i+2;
+  }
+  return 0;
+}
+function recordPage(idx,mode){
+  if(mode==="none")return;
+  const route={mode:accessMode,page:idx===0?"cover":idx===1?"toc":idx===totalPages()-1?"closing":"chapter"};
+  if(route.page==="chapter")route.chapterId=chapters[idx-2].id;
+  const old=history.state?.[READER_HISTORY_KEY];
+  if(mode==="push"&&old?.mode===route.mode&&old?.page===route.page&&old?.chapterId===route.chapterId)return;
+  const state={...history.state,[READER_HISTORY_KEY]:route};
+  if(mode==="replace")history.replaceState(state,"");else history.pushState(state,"");
+}
+function clearChapterFrame(){
+  // A fresh iframe starts with an empty history and stops the previous chapter's audio.
+  const old=document.getElementById("chapterFrame"),fresh=old.cloneNode(false);
+  fresh.removeAttribute("src");fresh.removeAttribute("srcdoc");fresh.classList.add("hidden");
+  old.replaceWith(fresh);
+}
+async function showPage(idx,{historyMode="push"}={}){
+  idx=Math.max(0,Math.min(totalPages()-1,idx));
+  if(currentIndex===1)tocScrollTop=document.querySelector("#tocPage .page-inner").scrollTop;
+  recordPage(idx,historyMode);
+  currentIndex=idx;const token=++chapterRenderToken;clearChapterFrame();
+  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+  if(idx===0)document.getElementById("coverPage").classList.add("active");
+  else if(idx===1){
+    document.getElementById("tocPage").classList.add("active");
+    document.querySelector("#tocPage .page-inner").scrollTop=tocScrollTop;
+  }else if(idx===totalPages()-1)document.getElementById("closingPage").classList.add("active");
+  else{
+    const {ch,g}=pageInfoByFlat(idx-2);
+    if(accessMode==="demo"&&accessOf(ch)!=="free"){
+      document.getElementById("lockedTitle").textContent=g?.title||groupTitleOf(ch);
+      document.getElementById("lockedPage").classList.add("active");
+    }else{
+      document.getElementById("chapterPage").classList.add("active");
+      await renderChapter(idx-2,token);
+    }
+  }
+}
+window.addEventListener("popstate",event=>{
+  if(!bookReady||readerApp.classList.contains("hidden"))return;
+  showPage(indexFromHistory(event.state),{historyMode:"none"});
+});
+async function renderChapter(i,token){
+  const {ch,g,pi,gi}=pageInfoByFlat(i),badge=document.getElementById("chapterBadge"),title=document.getElementById("chapterTitle"),file=document.getElementById("chapterFile"),frame=document.getElementById("chapterFrame"),loading=document.getElementById("chapterLoading");
+  badge.textContent=String((gi>=0?gi:i)+1).padStart(2,"0");
+  title.textContent=g?.title||groupTitleOf(ch);
+  const ptxt=g&&g.pages.length>1?`Halaman ${pi+1}/${g.pages.length} • ${pageTitleOf(ch)}`:pageTitleOf(ch);
+  file.textContent=ch.fileName?`${ptxt} • ${ch.fileName}`:ptxt;
+  frame.classList.add("hidden");loading.classList.remove("hidden");loading.textContent="Memuat materi…";
+  try{
+    let html=chapterCache.get(ch.id);
+    if(!html){
+      if(accessMode==="demo"){
+        const snap=await getDocs(query(collection(db,"publicChapters",ch.id,"chunks"),orderBy("order")));
+        html=snap.docs.map(d=>d.data().html||"").join("");
+      }else{
+        const snap=await getDocs(query(collection(db,"chapters",ch.id,"chunks"),orderBy("order")));
+        const parts=[];
+        for(const d of snap.docs){const x=d.data();parts.push(await decryptPiece(x.iv,x.cipher))}
+        html=parts.join("");
+      }
+      if(!html)throw new Error("empty-chapter");
+      if(token!==chapterRenderToken)return;
+      chapterCache.set(ch.id,html);
+    }
+    if(token!==chapterRenderToken)return;
+    frame.srcdoc=html;frame.classList.remove("hidden");loading.classList.add("hidden");
+  }catch(e){
+    if(token!==chapterRenderToken)return;
+    console.error(e);
+    loading.textContent=accessMode==="demo"?"Materi demo belum siap. Hubungi admin atau coba lagi nanti.":"Materi gagal dimuat. Muat ulang halaman atau hubungi admin.";
+  }
+}
+async function startDemo(){try{await signOut(auth)}catch{}showReader("demo");try{await loadBookData("demo")}catch(e){console.error(e);setStatus("Mode demo belum siap. Admin perlu menyinkronkan katalog demo.","err");readerApp.classList.add("hidden");loginLayer.classList.remove("hidden")}}
+async function authorize(user){if(!user?.email||!user.emailVerified){await signOut(auth);setStatus("Email belum terverifikasi.","err");return}setStatus("Memeriksa lisensi dan perangkat…");try{await obtainDeviceKey(user);showReader("licensed",user.email);await loadBookData("licensed")}catch(e){console.error(e);const code=String(e?.message||e?.code||"");if(code.includes("different-device")||code.includes("already-bound")||code.includes("local-key-missing"))setStatus("🔒 Lisensi ini sudah terikat pada perangkat/browser lain. Hubungi admin untuk Reset Perangkat.","err");else if(code.includes("license-inactive")||code.includes("permission-denied"))setStatus("Akses ditolak. Lisensi tidak aktif atau belum disetujui.","err");else setStatus("Gagal memverifikasi akses. Hubungi admin.","err")}}
+loginBtn.addEventListener("click",async()=>{if(busy)return;setBusy(true);setStatus("Membuka login Google…");try{const r=await signInWithPopup(auth,provider);await authorize(r.user)}catch(e){console.error(e);if(e?.code==="auth/popup-closed-by-user")setStatus("Login dibatalkan.","err");else if(e?.code==="auth/popup-blocked")setStatus("Popup Google diblokir browser.","err");else setStatus("Gagal login dengan Google.","err")}finally{setBusy(false)}});
+demoBtn.addEventListener("click",startDemo);
+modeBtn.addEventListener("click",async()=>{if(accessMode==="licensed"){await signOut(auth);location.reload()}else openLogin()});
+document.getElementById("lockedLoginBtn").addEventListener("click",openLogin);
+document.getElementById("coverStartBtn").addEventListener("click",()=>showPage(1));
+onAuthStateChanged(auth,u=>{if(u)authorize(u)});
+</script>
+</body>
+</html>
